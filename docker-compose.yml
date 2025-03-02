@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+  umezawa24vr054y:
+    image: kaggle:latest
+    env_file:
+      - .env  # 環境変数を読み込む
+    shm_size: '8gb'
+    volumes:
+      - /home/yukaalive/2025workspace:/home/yukaalive/2025workspace
+    working_dir: /home/yukaalive/2025workspace
+    ports:
+      - "8888:8888"  # JupyterLabに合わせる
+
+    command: >
+      /bin/bash -c "
+      echo 'Environment Variables:'
+      echo 'HUGGINGFACE_TOKEN='$HUGGINGFACE_TOKEN
+      echo 'LLAMA_DIR='$LLAMA_DIR
+
+      # Condaのパスを設定
+      export PATH=/opt/miniconda/bin:$PATH
+      source /opt/miniconda/bin/activate base
+
+      echo 'Checking if conda environment exists...'
+      if [ ! -d '/opt/miniconda/envs/icl_task_vectors' ]; then
+        echo 'Creating conda environment...'
+        conda env create -f /home/yukaalive/2025workspace/environment.yml -n icl_task_vectors
+      else
+        echo 'Conda environment already exists.'
+      fi
+
+      conda activate icl_task_vectors
+
+      echo 'Ensuring LLaMA directory exists...'
+      mkdir -p $LLAMA_DIR
+
+      echo 'Starting Jupyter Lab...'
+      jupyter lab --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token='Yuka0124'
+      "
+      
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ "0" ]
+              capabilities: [ gpu ]
