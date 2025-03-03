@@ -90,7 +90,9 @@ def _get_batches(inputs: Dict, batch_size: int, show_progress: bool = False) -> 
 
     for i in indices:
         yield _slice_batch(i, i + batch_size)
+import transformers  # DynamicCache の判定に使う
 
+import transformers  # DynamicCache の判定に使う
 
 def batch_forward(
     model: PreTrainedModel,
@@ -119,19 +121,56 @@ def batch_forward(
             out = nested_apply(out, lambda t: t.cpu())
         output_all.append(out)
 
-    # 出力のクラスを（CausalLMOutputWithPast 等）に揃える
-    output_class = out.__class__  # 最後の out
-    # 連結した値を作り直す
-    merged_output = {}
-    for key in output_all[0].__dict__:
-        vals = [getattr(o, key) for o in output_all if getattr(o, key) is not None]
-        if len(vals) == 0:
-            merged_output[key] = None
-        else:
-            # ネスト構造を連結
-            merged_output[key] = nested_concat(vals)
+    # --------------------------------------------------
+    # 出力をマージ
+    if isinstance(output_all[0], dict):
+        # output_all[0] が dict の場合
+        merged_output = {}
+        output_keys = list(output_all[0].keys())
+        for key in output_keys:
+            vals = [o[key] for o in output_all if o[key] is not None]
 
-    return output_class(**merged_output)
+            # DynamicCache の項目が含まれる場合、ここでは
+            # - 複数バッチ分をマージせず
+            # - バッチの最後のものを流用 (最低限のエラー回避)
+            if any(isinstance(v, transformers.cache_utils.DynamicCache) for v in vals):
+                if len(vals) > 0:
+                    merged_output[key] = vals[-1]  # 最後のバッチを採用
+                else:
+                    merged_output[key] = None
+                continue
+
+            if len(vals) == 0:
+                merged_output[key] = None
+            else:
+                merged_output[key] = nested_concat(vals)
+
+    else:
+        # output_all[0] が ModelOutput (CausalLMOutputWithPast 等) の場合
+        first_dict = vars(output_all[0])  # or output_all[0].__dict__
+        merged_output = {}
+        for key in first_dict.keys():
+            vals = []
+            for o in output_all:
+                val = getattr(o, key, None)
+                if val is not None:
+                    vals.append(val)
+
+            # DynamicCache の項目が含まれる場合、同様に最後のものだけを使う
+            if any(isinstance(v, transformers.cache_utils.DynamicCache) for v in vals):
+                if len(vals) > 0:
+                    merged_output[key] = vals[-1]
+                else:
+                    merged_output[key] = None
+                continue
+
+            if len(vals) == 0:
+                merged_output[key] = None
+            else:
+                merged_output[key] = nested_concat(vals)
+
+    # 最後に CausalLMOutputWithPast に詰め直す
+    return CausalLMOutputWithPast(**merged_output)
 
 
 def _auto_batch_size(model: PreTrainedModel, inputs: Dict) -> int:
