@@ -6,6 +6,7 @@ import torch
 from tqdm import tqdm
 from transformers import PreTrainedModel, PreTrainedTokenizer
 from transformers.modeling_outputs import CausalLMOutputWithPast
+import transformers  # DynamicCache の判定等で使う場合あり
 
 from core.data.datasets.few_shot_dataset import FewShotDataset
 from core.data.datasets.few_shot_format import FewShotFormat
@@ -59,17 +60,22 @@ def get_input_type(inputs: Dict) -> str:
         raise ValueError("inputs must contain either input_ids or inputs_embeds")
     if "input_ids" in inputs and "inputs_embeds" in inputs:
         raise ValueError("inputs must contain either input_ids or inputs_embeds, not both")
-
     return "input_ids" if "input_ids" in inputs else "inputs_embeds"
 
 
 def _get_forward_kwargs(forward_kwargs: Optional[Dict] = None) -> Dict:
     """
     forwardやgenerateで使う引数をまとめておきたい場合の簡易的な関数。
-    ここでは特にオプション追加はしていませんが、
-    必要に応じてデフォルト引数を足したりできます。
+    必要に応じてデフォルト引数を足したりします。
     """
-    return forward_kwargs or {}
+    forward_kwargs = forward_kwargs or {}
+
+    # 例: デフォルトで隠れ状態を出す・キャッシュを使わない
+    forward_kwargs.setdefault("return_dict", True)
+    forward_kwargs.setdefault("output_hidden_states", True)
+    forward_kwargs.setdefault("use_cache", False)
+
+    return forward_kwargs
 
 
 def _get_batches(inputs: Dict, batch_size: int, show_progress: bool = False) -> Iterable[Dict]:
@@ -80,7 +86,6 @@ def _get_batches(inputs: Dict, batch_size: int, show_progress: bool = False) -> 
     num_inputs = len(inputs[input_type])
     indices = range(0, num_inputs, batch_size)
 
-    # スライスを適用し、部分的な辞書を返すイテレータを作成
     def _slice_batch(start: int, end: int):
         return nested_apply(inputs, lambda t: t[start:end])
 
@@ -90,9 +95,7 @@ def _get_batches(inputs: Dict, batch_size: int, show_progress: bool = False) -> 
 
     for i in indices:
         yield _slice_batch(i, i + batch_size)
-import transformers  # DynamicCache の判定に使う
 
-import transformers  # DynamicCache の判定に使う
 
 def batch_forward(
     model: PreTrainedModel,
@@ -102,74 +105,60 @@ def batch_forward(
     show_progress: bool = False,
 ) -> CausalLMOutputWithPast:
     """
-    大きい入力をバッチに分けて model(**batch_inputs) を実行し、結果を結合して返す。
+    大きい入力をバッチに分けて model(**batch_inputs) を実行し、結果を連結して返す。
     """
     forward_kwargs = _get_forward_kwargs(forward_kwargs)
 
     if batch_size is None or batch_size < 1:
         batch_size = _auto_batch_size(model, inputs)
 
-    # バッチに分ける
     batches = _get_batches(inputs, batch_size, show_progress=show_progress)
-
     output_all = []
+
     for batch_inputs in batches:
         batch_inputs = nested_apply(batch_inputs, lambda t: t.to(model.device))
         with torch.no_grad():
             out = model(**batch_inputs, **forward_kwargs)
-            # CPUに戻してメモリ節約（バッチ結合時にGPUに置くと大きくなるため）
+            # CPUに戻してメモリ節約
             out = nested_apply(out, lambda t: t.cpu())
         output_all.append(out)
 
     # --------------------------------------------------
-    # 出力をマージ
-    if isinstance(output_all[0], dict):
-        # output_all[0] が dict の場合
-        merged_output = {}
-        output_keys = list(output_all[0].keys())
-        for key in output_keys:
-            vals = [o[key] for o in output_all if o[key] is not None]
+    # 出力を連結 (DynamicCache は使わない想定)
+    # ここで、辞書 or ModelOutput を判定して keys() を取得する
+    first_out = output_all[0]
 
-            # DynamicCache の項目が含まれる場合、ここでは
-            # - 複数バッチ分をマージせず
-            # - バッチの最後のものを流用 (最低限のエラー回避)
-            if any(isinstance(v, transformers.cache_utils.DynamicCache) for v in vals):
-                if len(vals) > 0:
-                    merged_output[key] = vals[-1]  # 最後のバッチを採用
-                else:
-                    merged_output[key] = None
-                continue
-
-            if len(vals) == 0:
-                merged_output[key] = None
-            else:
-                merged_output[key] = nested_concat(vals)
-
+    if isinstance(first_out, dict):
+        # もし最初の出力が辞書なら dict.keys()
+        output_keys = list(first_out.keys())
+    elif hasattr(first_out, "keys"):
+        # もし keys() メソッドを持つ (ModelOutput等) なら .keys() を使う
+        output_keys = list(first_out.keys())
     else:
-        # output_all[0] が ModelOutput (CausalLMOutputWithPast 等) の場合
-        first_dict = vars(output_all[0])  # or output_all[0].__dict__
-        merged_output = {}
-        for key in first_dict.keys():
-            vals = []
-            for o in output_all:
-                val = getattr(o, key, None)
-                if val is not None:
-                    vals.append(val)
+        # それ以外の場合 fallback
+        # もしどうしても vars() を使うならこちら
+        output_keys = list(vars(first_out).keys())
 
-            # DynamicCache の項目が含まれる場合、同様に最後のものだけを使う
-            if any(isinstance(v, transformers.cache_utils.DynamicCache) for v in vals):
-                if len(vals) > 0:
-                    merged_output[key] = vals[-1]
-                else:
-                    merged_output[key] = None
-                continue
-
-            if len(vals) == 0:
-                merged_output[key] = None
+    merged_output = {}
+    for key in output_keys:
+        vals = []
+        for o in output_all:
+            # dictかModelOutputかで値を取り出す方法を変える
+            if isinstance(o, dict):
+                val = o.get(key, None)
+            elif hasattr(o, "keys"):
+                val = o[key] if key in o.keys() else None
             else:
-                merged_output[key] = nested_concat(vals)
+                val = getattr(o, key, None)
 
-    # 最後に CausalLMOutputWithPast に詰め直す
+            if val is not None:
+                vals.append(val)
+
+        merged_output[key] = (
+            nested_concat(vals) if len(vals) > 0 else None
+        )
+
+    # 最後に CausalLMOutputWithPast にまとめる
     return CausalLMOutputWithPast(**merged_output)
 
 
@@ -191,7 +180,7 @@ def _auto_batch_size(model: PreTrainedModel, inputs: Dict) -> int:
         * (base_model_size_gb / model_size_gb)
         * (base_sequence_length / sequence_length)
     )
-    return max(batch_size, 1)  # 1未満にならないように保護
+    return max(batch_size, 1)
 
 
 def batch_generate(
@@ -202,11 +191,14 @@ def batch_generate(
     batch_size: Optional[int] = None,
     show_progress: bool = False,
 ) -> torch.Tensor:
-    """
-    複数の入力をバッチに分けて model.generate(**batch_inputs) を行い、出力を連結して返す。
-    """
-
     generate_kwargs = _get_forward_kwargs(generate_kwargs)
+
+    # もし generate_kwargs に return_dict があれば削除
+    if "return_dict" in generate_kwargs:
+        del generate_kwargs["return_dict"]
+
+    # 生成で hidden_states を使う場合
+    generate_kwargs.setdefault("return_dict_in_generate", True)
 
     if batch_size is None or batch_size < 1:
         batch_size = _auto_batch_size(model, inputs)
@@ -214,58 +206,56 @@ def batch_generate(
     input_type = get_input_type(inputs)
     total_length = inputs[input_type].shape[0]
 
-    # バッチに分割
     batches = _get_batches(inputs, batch_size, show_progress=show_progress)
-
     all_batch_ids = []
+
     for batch_inputs in batches:
-        # バッチごとのデバイス移動
         batch_inputs = nested_apply(batch_inputs, lambda t: t.to(model.device))
+        with torch.no_grad():
+            batch_ids_output = model.generate(
+                **batch_inputs,
+                **generate_kwargs,
+                pad_token_id=tokenizer.pad_token_id,
+            )
 
-        # ここで do_sample=... を**明示指定しない** (generate_kwargs で指定する想定)
-        batch_ids = model.generate(
-            **batch_inputs,
-            **generate_kwargs,
-            # 例: num_return_sequences=1 をデフォルトにしたいならここに置く
-            pad_token_id=tokenizer.pad_token_id,
-        )
-        all_batch_ids.append(batch_ids.cpu())  # CPUに戻しておくと後で連結が安全
+        # GenerateDecoderOnlyOutput 等の場合は .sequences を取り出す
+        if hasattr(batch_ids_output, "sequences"):
+            batch_ids = batch_ids_output.sequences
+        else:
+            batch_ids = batch_ids_output
 
-    generate_ids = torch.cat(all_batch_ids, dim=0)  # (batch_sum, seq_len + new_tokens)
+        all_batch_ids.append(batch_ids.cpu())
 
-    # 元の入力長を引いた部分だけを「新規生成されたトークン」として返す
+    generate_ids = torch.cat(all_batch_ids, dim=0)
+
+    # 以下、元の入力長だけ切り取って返す
     new_ids = []
     offset = 0
     for batch_inputs in _get_batches(inputs, batch_size, show_progress=False):
         bs = len(batch_inputs[input_type])
         seq_len = batch_inputs[input_type].shape[1]
-        # slice out the portion after the original context
         new_ids.append(generate_ids[offset : offset + bs, seq_len:])
         offset += bs
-    new_ids = torch.cat(new_ids, dim=0)
 
+    new_ids = torch.cat(new_ids, dim=0)
     return new_ids
 
 
 def decode_predictions(
-    output_ids: torch.Tensor, 
-    tokenizer: PreTrainedTokenizer, 
+    output_ids: torch.Tensor,
+    tokenizer: PreTrainedTokenizer,
     few_shot_format: FewShotFormat = FewShotFormat()
 ) -> List[str]:
-    """
-    モデルが新規に生成したトークン列を文字列にデコードし、FewShotFormatに応じた区切りなどがあれば処理。
-    """
     new_tokens = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
-    # 例: example_separator があればそこで区切り
     answers = [tokens.split(few_shot_format.example_separator)[0] for tokens in new_tokens]
     return answers
 
 
 def tokenize_prompts(tokenizer: PreTrainedTokenizer, prompts: List[str]) -> Dict[str, torch.Tensor]:
     return tokenizer(
-        prompts, 
-        return_tensors="pt", 
-        padding=True, 
+        prompts,
+        return_tensors="pt",
+        padding=True,
         return_token_type_ids=False
     )
 
@@ -274,16 +264,15 @@ def tokenize_datasets(
     tokenizer: PreTrainedTokenizer,
     datasets: List[FewShotDataset],
     few_shot_format: FewShotFormat = FewShotFormat(),
-    format_dataset_kwargs: Optional[dict] = {},
+    format_dataset_kwargs: Optional[dict] = None,
 ) -> Dict[str, torch.Tensor]:
+    if format_dataset_kwargs is None:
+        format_dataset_kwargs = {}
     prompts = few_shot_format.format_datasets(datasets, **format_dataset_kwargs)
     return tokenize_prompts(tokenizer, prompts)
 
 
 def hidden_to_logits(model: PreTrainedModel, hidden: torch.Tensor) -> torch.Tensor:
-    """
-    ある hidden state をモデル最後の LM head に通してロジットを得る例。
-    """
     device = model.device
     lm_pipeline = get_lm_pipeline(model)
 
@@ -292,22 +281,16 @@ def hidden_to_logits(model: PreTrainedModel, hidden: torch.Tensor) -> torch.Tens
 
     with torch.no_grad():
         logits = lm_pipeline(hidden).cpu()
-
     return logits
 
 
 def logits_to_tokens(
-    logits: torch.Tensor, 
-    tokenizer: PreTrainedTokenizer, 
+    logits: torch.Tensor,
+    tokenizer: PreTrainedTokenizer,
     ignore_ids: Optional[List[int]] = None
 ) -> List[str]:
-    """
-    ロジットから最大値IDを取り、トークンに変換して返す例。
-    ignore_ids がある場合、そのIDに -inf を入れて無効化する。
-    """
     if ignore_ids is not None:
         logits[np.arange(len(logits)), ignore_ids] = -np.inf
-
     ids = logits.argmax(dim=-1).numpy()
     tokens = np.vectorize(tokenizer.decode)(ids)
     return tokens
@@ -319,10 +302,6 @@ def get_logits(
     position: int,
     layer: Optional[int] = None,
 ) -> Dict[str, torch.Tensor]:
-    """
-    ForwardTrace に記録された residual_stream などから hidden state を抜き出し、
-    それをロジットに変換した結果をまとめて返す例。
-    """
     layer_indexer = layer if layer is not None else slice(None, None, None)
     logits = {
         name: hidden_to_logits(model, hidden[:, layer_indexer, position])
@@ -338,7 +317,7 @@ def traced_forward_context_manager(model: PreTrainedModel) -> Tuple[ContextManag
 
 
 def modified_forward_context_manager(
-    model: PreTrainedModel, 
+    model: PreTrainedModel,
     forward_modifiers: Optional[Iterable[ContextManager]] = ()
 ) -> ContextManager:
     return CombinedContextManager([*forward_modifiers])
