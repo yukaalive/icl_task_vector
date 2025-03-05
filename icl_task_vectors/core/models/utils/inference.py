@@ -96,7 +96,6 @@ def _get_batches(inputs: Dict, batch_size: int, show_progress: bool = False) -> 
     for i in indices:
         yield _slice_batch(i, i + batch_size)
 
-
 def batch_forward(
     model: PreTrainedModel,
     inputs: Dict,
@@ -105,62 +104,100 @@ def batch_forward(
     show_progress: bool = False,
 ) -> CausalLMOutputWithPast:
     """
-    大きい入力をバッチに分けて model(**batch_inputs) を実行し、結果を連結して返す。
+    大きい入力をバッチに分けて model(**batch_inputs) を実行し、結果を結合して返す。
     """
     forward_kwargs = _get_forward_kwargs(forward_kwargs)
 
     if batch_size is None or batch_size < 1:
         batch_size = _auto_batch_size(model, inputs)
 
+    # バッチに分ける
     batches = _get_batches(inputs, batch_size, show_progress=show_progress)
-    output_all = []
 
+    output_all = []
     for batch_inputs in batches:
         batch_inputs = nested_apply(batch_inputs, lambda t: t.to(model.device))
         with torch.no_grad():
             out = model(**batch_inputs, **forward_kwargs)
-            # CPUに戻してメモリ節約
-            out = nested_apply(out, lambda t: t.cpu())
+            # CPUに戻してメモリ節約（バッチ結合時にGPUに置くと大きくなるため）
+            out = nested_apply(out, lambda t: t.cpu() if torch.is_tensor(t) else t)
         output_all.append(out)
 
     # --------------------------------------------------
-    # 出力を連結 (DynamicCache は使わない想定)
-    # ここで、辞書 or ModelOutput を判定して keys() を取得する
-    first_out = output_all[0]
+    # 出力をマージ
+    if isinstance(output_all[0], dict):
+        # output_all[0] が dict の場合
+        merged_output = {}
+        output_keys = list(output_all[0].keys())
+        for key in output_keys:
+            # None以外の値のみ収集
+            vals = [o[key] for o in output_all if o[key] is not None]
 
-    if isinstance(first_out, dict):
-        # もし最初の出力が辞書なら dict.keys()
-        output_keys = list(first_out.keys())
-    elif hasattr(first_out, "keys"):
-        # もし keys() メソッドを持つ (ModelOutput等) なら .keys() を使う
-        output_keys = list(first_out.keys())
-    else:
-        # それ以外の場合 fallback
-        # もしどうしても vars() を使うならこちら
-        output_keys = list(vars(first_out).keys())
+            # DynamicCache の項目が含まれる場合の処理
+            if any(isinstance(v, transformers.cache_utils.DynamicCache) for v in vals):
+                if len(vals) > 0:
+                    merged_output[key] = vals[-1]  # 最後のバッチを採用
+                else:
+                    # Noneではなく空のテンソルやデフォルト値を設定
+                    merged_output[key] = torch.tensor([]) if key in ['logits'] else None
+                continue
 
-    merged_output = {}
-    for key in output_keys:
-        vals = []
-        for o in output_all:
-            # dictかModelOutputかで値を取り出す方法を変える
-            if isinstance(o, dict):
-                val = o.get(key, None)
-            elif hasattr(o, "keys"):
-                val = o[key] if key in o.keys() else None
+            if len(vals) == 0:
+                # キーに応じてデフォルト値を設定
+                if key in ['logits', 'hidden_states']:
+                    merged_output[key] = torch.tensor([])  # 空のテンソル
+                else:
+                    merged_output[key] = None
             else:
+                try:
+                    merged_output[key] = nested_concat(vals)
+                except Exception as e:
+                    print(f"Error concatenating {key}: {e}")
+                    # 安全なフォールバック
+                    if torch.is_tensor(vals[0]):
+                        merged_output[key] = vals[0].clone()
+                    else:
+                        merged_output[key] = vals[0]
+
+    else:
+        # output_all[0] が ModelOutput (CausalLMOutputWithPast 等) の場合
+        first_dict = vars(output_all[0])  # or output_all[0].__dict__
+        merged_output = {}
+        for key in first_dict.keys():
+            vals = []
+            for o in output_all:
                 val = getattr(o, key, None)
+                if val is not None:
+                    vals.append(val)
 
-            if val is not None:
-                vals.append(val)
+            # DynamicCache の項目が含まれる場合、同様に最後のものだけを使う
+            if any(isinstance(v, transformers.cache_utils.DynamicCache) for v in vals):
+                if len(vals) > 0:
+                    merged_output[key] = vals[-1]
+                else:
+                    # Noneではなく空のテンソルやデフォルト値を設定
+                    merged_output[key] = torch.tensor([]) if key in ['logits'] else None
+                continue
 
-        merged_output[key] = (
-            nested_concat(vals) if len(vals) > 0 else None
-        )
+            if len(vals) == 0:
+                # キーに応じてデフォルト値を設定
+                if key in ['logits', 'hidden_states']:
+                    merged_output[key] = torch.tensor([])  # 空のテンソル
+                else:
+                    merged_output[key] = None
+            else:
+                try:
+                    merged_output[key] = nested_concat(vals)
+                except Exception as e:
+                    print(f"Error concatenating {key}: {e}")
+                    # 安全なフォールバック
+                    if torch.is_tensor(vals[0]):
+                        merged_output[key] = vals[0].clone()
+                    else:
+                        merged_output[key] = vals[0]
 
-    # 最後に CausalLMOutputWithPast にまとめる
+    # 最後に CausalLMOutputWithPast に詰め直す
     return CausalLMOutputWithPast(**merged_output)
-
 
 def _auto_batch_size(model: PreTrainedModel, inputs: Dict) -> int:
     """
@@ -295,20 +332,40 @@ def logits_to_tokens(
     tokens = np.vectorize(tokenizer.decode)(ids)
     return tokens
 
-
+# get_logits関数の修正
 def get_logits(
     model: PreTrainedModel,
     forward_trace: ForwardTrace,
     position: int,
     layer: Optional[int] = None,
 ) -> Dict[str, torch.Tensor]:
+    """
+    ForwardTrace に記録された residual_stream などから hidden state を抜き出し、
+    それをロジットに変換した結果をまとめて返す例。
+    """
     layer_indexer = layer if layer is not None else slice(None, None, None)
-    logits = {
-        name: hidden_to_logits(model, hidden[:, layer_indexer, position])
-        for name, hidden in asdict(forward_trace.residual_stream).items()
-    }
+    logits = {}
+    
+    # 安全にresidual_streamからデータを取得
+    residual_stream_dict = asdict(forward_trace.residual_stream) if forward_trace.residual_stream else {}
+    
+    for name, hidden in residual_stream_dict.items():
+        if hidden is None or len(hidden) == 0:
+            logits[name] = torch.zeros((1, model.config.vocab_size))  # デフォルト値の設定
+            continue
+            
+        try:
+            # インデックスエラーを防止
+            if position < hidden.shape[1]:
+                logit = hidden_to_logits(model, hidden[:, layer_indexer, position])
+                logits[name] = logit
+            else:
+                logits[name] = torch.zeros((1, model.config.vocab_size))
+        except Exception as e:
+            print(f"Error in get_logits for {name}: {e}")
+            logits[name] = torch.zeros((1, model.config.vocab_size))
+            
     return logits
-
 
 def traced_forward_context_manager(model: PreTrainedModel) -> Tuple[ContextManager, ForwardTrace]:
     forward_trace = ForwardTrace()

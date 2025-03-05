@@ -41,7 +41,7 @@ def evaluate_task(model: PreTrainedModel, tokenizer: PreTrainedTokenizer, task_n
     # Evaluate ICL and Task Vector
     # TODO: Change back to 400, 100
     # num_test_datasets, num_dev_datasets = 400, 100
-    num_test_datasets, num_dev_datasets = 50, 50
+    num_test_datasets, num_dev_datasets = 25, 25
     test_datasets = task.create_datasets(num_datasets=num_test_datasets, num_examples=num_examples)
     dev_datasets = task.create_datasets(num_datasets=num_dev_datasets, num_examples=num_examples)
     icl_predictions = run_icl(model, tokenizer, task, test_datasets)
@@ -86,7 +86,8 @@ def run_main_experiment(
     else:
         results = {}
 
-    limit_gpus(range(0, 8))
+    #limit_gpus(range(0, 8))
+    limit_gpus([0])
 
     print("Loading model and tokenizer...")
     if model is None or tokenizer is None:
