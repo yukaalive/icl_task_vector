@@ -791,3 +791,23 @@ def continue_generation(
         print(f"エラー: continue_generation中に例外が発生: {e}")
         # エラーが発生した場合はダミー回答を返す
         return ["[生成エラー]"] * len(test_datasets)
+    
+def print_prompt_examples(model: PreTrainedModel, tokenizer: PreTrainedTokenizer, task_name: str, num_examples: int):
+    """
+    異なるモード（ベースライン、ICL）でのプロンプト例を表示して比較するための関数。
+    デバッグ用途で使用します。
+    """
+    task = get_task_by_name(tokenizer=tokenizer, task_name=task_name)
+    
+    # ベースライン用データセット（例示なし）
+    baseline_dataset = task.create_dataset(num_examples=0)
+    baseline_prompt = tokenize_datasets(tokenizer, [baseline_dataset], format_dataset_kwargs={"include_train": False})
+    
+    # ICL用データセット（例示あり）
+    icl_dataset = task.create_dataset(num_examples=num_examples)
+    icl_prompt = tokenize_datasets(tokenizer, [icl_dataset], format_dataset_kwargs={"include_train": True})
+    
+    print(f"=== Baseline Prompt Example (task: {task_name}) ===")
+    print(tokenizer.decode(baseline_prompt["input_ids"][0]))
+    print("\n=== ICL Prompt Example ===")
+    print(tokenizer.decode(icl_prompt["input_ids"][0]))
