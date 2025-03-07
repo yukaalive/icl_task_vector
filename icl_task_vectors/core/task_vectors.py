@@ -505,7 +505,6 @@ def get_task_hiddens(
         hidden_size = model.config.hidden_size
         return torch.zeros((num_datasets, num_layers, hidden_size), device='cpu')
 
-
 def modulated_generate(
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
@@ -576,12 +575,13 @@ def modulated_generate(
                     
                     batch_selected_hiddens = torch.stack(batch_selected_hiddens).to(model.device)
                     
-                    # HiddenInjectorを使用
+                    # HiddenInjectorを使用 - ここにdebug_level=2を追加
                     with HiddenInjector(
                         model,
                         injection_layers=batch_intermediate_layer,
                         injection_positions=batch_injection_positions,
                         hiddens_to_inject=batch_selected_hiddens,
+                        debug_level=2  # デバッグレベルを2に設定
                     ) as injector:
                         # モデルの前方伝播を実行
                         batch_outputs = model(**batch_inputs, return_dict=True)
@@ -682,7 +682,7 @@ def task_vector_accuracy_by_layer(
         print(f"Debug: 層{layer_num}のテスト中...")
         
         try:
-            # この層に対して回答を生成
+            # この層に対して回答を生成（debug_level=2を追加）
             answers = modulated_generate(
                 model=model,
                 tokenizer=tokenizer,
@@ -806,7 +806,7 @@ def print_prompt_examples(model: PreTrainedModel, tokenizer: PreTrainedTokenizer
     # ICL用データセット（例示あり）
     icl_dataset = task.create_dataset(num_examples=num_examples)
     icl_prompt = tokenize_datasets(tokenizer, [icl_dataset], format_dataset_kwargs={"include_train": True})
-    
+    ##
     print(f"=== Baseline Prompt Example (task: {task_name}) ===")
     print(tokenizer.decode(baseline_prompt["input_ids"][0]))
     print("\n=== ICL Prompt Example ===")
