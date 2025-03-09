@@ -1,0 +1,4193 @@
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /root/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.17s/it]
+Evaluating model: meta-llama Llama-2-7b-hf
+Loading model and tokenizer...
+Loaded model and tokenizer.
+WARNING: mapping singular_plural has only 31 examples after filtering (173 before)
+WARNING: mapping plural_singular has only 44 examples after filtering (172 before)
+=== Baseline Prompt Example (task: translation_fr_en) ===
+<s> example: suggérer->
+
+=== ICL Prompt Example ===
+<s> example: produire-> produce
+example: tenir-> hold
+example: nationale-> national
+example: art-> art
+example: la télé-> tv
+example: personne->
+
+================================================================================
+
+=== Baseline Prompt Example (task: linguistic_present_simple_gerund) ===
+<s> example: remain->
+
+=== ICL Prompt Example ===
+<s> example: become-> becoming
+example: satisfy-> satisfying
+example: run-> running
+example: rise-> rising
+example: consist-> consisting
+example: lose->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_country_capital) ===
+<s> example:Free State of Prussia->
+
+=== ICL Prompt Example ===
+<s> example:Kingdom of Iraq->Baghdad
+example:Libya->Tripoli
+example:Jerusalem District->Jerusalem
+example:4th of August Regime->Athens
+example:Brandenburg-Prussia->Berlin
+example:Germany->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_next_letter) ===
+<s> example:l->
+
+=== ICL Prompt Example ===
+<s> example:p->q
+example:c->d
+example:e->f
+example:w->x
+example:s->t
+example:q->
+
+================================================================================
+
+=== Baseline Prompt Example (task: translation_es_en) ===
+<s> example: ventilador->
+
+=== ICL Prompt Example ===
+<s> example: memoria-> memory
+example: desafío-> challenge
+example: reciente-> recent
+example: mejor-> better
+example: seis-> six
+example: parte->
+
+================================================================================
+
+=== Baseline Prompt Example (task: translation_en_fr) ===
+<s> example: summer->
+
+=== ICL Prompt Example ===
+<s> example: who-> qui
+example: go-> aller
+example: be-> être
+example: region-> région
+example: parent-> parent
+example: level->
+
+================================================================================
+
+=== Baseline Prompt Example (task: translation_en_es) ===
+<s> example: so->
+
+=== ICL Prompt Example ===
+<s> example: teacher-> profesor
+example: if-> si
+example: simple-> simple
+example: month-> mes
+example: music-> música
+example: club->
+
+================================================================================
+
+=== Baseline Prompt Example (task: linguistic_present_simple_past_simple) ===
+<s> example: protect->
+
+=== ICL Prompt Example ===
+<s> example: hide-> hid
+example: accept-> accepted
+example: live-> lived
+example: excite-> excited
+example: load-> loaded
+example: lift->
+
+================================================================================
+
+WARNING: mapping plural_singular has only 44 examples after filtering (172 before)
+=== Baseline Prompt Example (task: linguistic_plural_singular) ===
+<s> example: children->
+
+=== ICL Prompt Example ===
+<s> example: means-> means
+example: media-> medium
+example: people-> person
+example: wives-> wife
+example: aircraft-> aircraft
+example: cod->
+
+================================================================================
+
+=== Baseline Prompt Example (task: linguistic_antonyms) ===
+<s> example: fat->
+
+=== ICL Prompt Example ===
+<s> example: heavy-> light
+example: cruel-> kind
+example: nice-> mean
+example: worse-> better
+example: here-> there
+example: fail->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_person_language) ===
+<s> example:William Fitzwilliam, 4th Earl Fitzwilliam->
+
+=== ICL Prompt Example ===
+<s> example:Carlos Marchena->Spanish
+example:Manu Chao->French
+example:Pedro Paterno->Spanish
+example:Abraham de Moivre->English
+example:Kazimierz Wyka->Polish
+example:Juan Carlos Garrido->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_location_continent) ===
+<s> example:Mapple Glacier->
+
+=== ICL Prompt Example ===
+<s> example:Austria-Hungary->Europe
+example:Adelaide Island->Antarctica
+example:Berwick Glacier->Antarctica
+example:Voden Heights->Antarctica
+example:Coulter Heights->Antarctica
+example:Melnik Ridge->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_location_religion) ===
+<s> example:Shah Alam II->
+
+=== ICL Prompt Example ===
+<s> example:Alfred the Great->Christian
+example:Abdalqadir as-Sufi->Muslim
+example:Muslim->Muslim
+example:Aurangzeb->Muslim
+example:Carlos the Jackal->Muslim
+example:Muhammad Shah->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_prev_letter) ===
+<s> example:n->
+
+=== ICL Prompt Example ===
+<s> example:u->t
+example:n->m
+example:q->p
+example:o->n
+example:t->s
+example:s->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_list_first) ===
+<s> example:l,i->
+
+=== ICL Prompt Example ===
+<s> example:w,b->w
+example:i,b->i
+example:w,d,s,i->w
+example:u,p,h->u
+example:p,u,b->p
+example:t,p,z->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_list_last) ===
+<s> example:o,z,c,p->
+
+=== ICL Prompt Example ===
+<s> example:x,c,e->e
+example:r,i->i
+example:k,x,l->l
+example:h,y->y
+example:w,q,b->b
+example:f,m->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_to_upper) ===
+<s> example:k->
+
+=== ICL Prompt Example ===
+<s> example:j->J
+example:d->D
+example:m->M
+example:k->K
+example:s->S
+example:i->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_to_lower) ===
+<s> example:L->
+
+=== ICL Prompt Example ===
+<s> example:S->s
+example:E->e
+example:D->d
+example:Q->q
+example:N->n
+example:C->
+
+================================================================================
+
+
+==================================================
+Running task 1/27: translation_fr_en
+Evaluating baseline for task: translation_fr_en
+Baseline accuracy: 0.1800
+Evaluating ICL and Task Vector for task: translation_fr_en
+ICL accuracy: 0.8000
+Debug: モデルは合計32層あります
+Debug: タスクhiddensを取得中...
+Debug: 単一コンテキストからタスクhiddensを取得中...
+Debug: データセット 1/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 2/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 3/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 4/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 5/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 6/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 7/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 8/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 9/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 10/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 11/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 12/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 13/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 14/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 15/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 16/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 17/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 18/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 19/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 20/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 21/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 22/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 23/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 24/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: データセット 25/25 処理中
+Debug: トレース出力はタプル型です (長さ: 2)
+Debug: hidden_states属性を持つオブジェクトを出力タプルの第1要素として検出しました
+Debug: hidden_statesはタプル型です (長さ: 33)
+Debug: 単一コンテキストhiddens取得完了: shape=torch.Size([25, 1, 44, 4096])
+Debug: タスクhiddens取得完了: shape=torch.Size([25, 1, 44, 4096])
+Debug: 層0のテスト中...
+Debug: modulated_generate開始 (層=0)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([0]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層0の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.0508 -> 122.9375 (注入: 122.9375)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.3223 -> 122.9375 (注入: 122.9375)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.1602 -> 122.9375 (注入: 122.9375)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.5391 -> 126.5000 (注入: 126.5000)
+層0の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([0]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層0の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.5391 -> 126.5000 (注入: 126.5000)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.1250 -> 126.5000 (注入: 126.5000)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.4199 -> 122.9375 (注入: 122.9375)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.0469 -> 77.6250 (注入: 77.6250)
+層0の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([0]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層0の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.0938 -> 70.6875 (注入: 70.6875)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.5391 -> 75.5000 (注入: 75.5000)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.5391 -> 122.9375 (注入: 122.9375)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.1191 -> 118.9375 (注入: 118.9375)
+層0の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([0]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層0の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 1.8184 -> 109.0000 (注入: 109.0000)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.0508 -> 123.0625 (注入: 123.0625)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.1777 -> 78.6250 (注入: 78.6250)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.5391 -> 75.1250 (注入: 75.1250)
+層0の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([0]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層0の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.5391 -> 126.5000 (注入: 126.5000)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.3164 -> 73.4375 (注入: 73.4375)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.0156 -> 126.5000 (注入: 126.5000)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 1.8604 -> 78.5625 (注入: 78.5625)
+層0の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([0]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層0の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.5391 -> 75.7500 (注入: 75.7500)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.5391 -> 129.7500 (注入: 129.7500)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 1.8389 -> 122.9375 (注入: 122.9375)
+層0の隠れ状態変化: MSE=0.000000
+成功: 層0の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.0098 -> 126.5000 (注入: 126.5000)
+層0の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([0]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層0の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.5391 -> 73.7500 (注入: 73.7500)
+層0の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層0の精度: 0.0000
+Debug: 層1のテスト中...
+Debug: modulated_generate開始 (層=1)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([1]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層1の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.9258 -> 122.9375 (注入: 122.9375)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.2051 -> 122.9375 (注入: 122.9375)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 3.2324 -> 122.9375 (注入: 122.9375)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.6094 -> 126.5000 (注入: 126.5000)
+層1の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([1]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層1の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.6094 -> 126.5000 (注入: 126.5000)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.0488 -> 126.5000 (注入: 126.5000)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 3.1797 -> 122.9375 (注入: 122.9375)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.8926 -> 77.6250 (注入: 77.6250)
+層1の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([1]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層1の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 3.0137 -> 70.6875 (注入: 70.6875)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.6094 -> 75.5000 (注入: 75.5000)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.6094 -> 122.9375 (注入: 122.9375)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.9746 -> 118.9375 (注入: 118.9375)
+層1の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([1]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層1の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.8027 -> 109.0000 (注入: 109.0000)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.9258 -> 123.0625 (注入: 123.0625)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 3.0059 -> 78.6250 (注入: 78.6250)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.6094 -> 75.1250 (注入: 75.1250)
+層1の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([1]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層1の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.6094 -> 126.5000 (注入: 126.5000)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.2324 -> 73.4375 (注入: 73.4375)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.7832 -> 126.5000 (注入: 126.5000)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 2.6445 -> 78.5625 (注入: 78.5625)
+層1の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([1]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層1の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.6094 -> 75.7500 (注入: 75.7500)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 2.6094 -> 129.7500 (注入: 129.7500)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 2.6777 -> 122.9375 (注入: 122.9375)
+層1の隠れ状態変化: MSE=0.000000
+成功: 層1の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 3.1523 -> 126.5000 (注入: 126.5000)
+層1の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([1]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層1の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 2.6094 -> 73.7500 (注入: 73.7500)
+層1の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層1の精度: 0.0000
+Debug: 層2のテスト中...
+Debug: modulated_generate開始 (層=2)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([2]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層2の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 3.9141 -> 122.9375 (注入: 122.9375)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.9941 -> 122.9375 (注入: 122.9375)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 4.0000 -> 122.9375 (注入: 122.9375)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 3.9512 -> 126.5000 (注入: 126.5000)
+層2の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([2]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層2の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 3.9512 -> 126.5000 (注入: 126.5000)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.9121 -> 126.5000 (注入: 126.5000)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 3.9082 -> 122.9375 (注入: 122.9375)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 3.9004 -> 77.6250 (注入: 77.6250)
+層2の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([2]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層2の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 3.9199 -> 70.6875 (注入: 70.6875)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.9512 -> 75.5000 (注入: 75.5000)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 3.9512 -> 122.9375 (注入: 122.9375)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 4.0273 -> 118.9375 (注入: 118.9375)
+層2の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([2]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層2の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 4.4102 -> 109.0000 (注入: 109.0000)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.9141 -> 123.0625 (注入: 123.0625)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 4.0273 -> 78.6250 (注入: 78.6250)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 3.9512 -> 75.1250 (注入: 75.1250)
+層2の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([2]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層2の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 3.9512 -> 126.5000 (注入: 126.5000)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.9648 -> 73.4375 (注入: 73.4375)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 3.7344 -> 126.5000 (注入: 126.5000)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 3.7754 -> 78.5625 (注入: 78.5625)
+層2の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([2]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層2の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 3.9512 -> 75.7500 (注入: 75.7500)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 3.9512 -> 129.7500 (注入: 129.7500)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 3.4453 -> 122.9375 (注入: 122.9375)
+層2の隠れ状態変化: MSE=0.000000
+成功: 層2の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 4.0664 -> 126.5000 (注入: 126.5000)
+層2の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([2]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層2の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 3.9512 -> 73.7500 (注入: 73.7500)
+層2の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層2の精度: 0.0000
+Debug: 層3のテスト中...
+Debug: modulated_generate開始 (層=3)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([3]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層3の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 5.0664 -> 122.9375 (注入: 122.9375)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 5.0469 -> 122.9375 (注入: 122.9375)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 5.2852 -> 122.9375 (注入: 122.9375)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 5.7969 -> 126.5000 (注入: 126.5000)
+層3の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([3]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層3の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 5.7969 -> 126.5000 (注入: 126.5000)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 5.2031 -> 126.5000 (注入: 126.5000)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 4.8320 -> 122.9375 (注入: 122.9375)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 5.2539 -> 77.6250 (注入: 77.6250)
+層3の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([3]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層3の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 5.1172 -> 70.6875 (注入: 70.6875)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 5.7969 -> 75.5000 (注入: 75.5000)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 5.7969 -> 122.9375 (注入: 122.9375)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 5.3672 -> 118.9375 (注入: 118.9375)
+層3の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([3]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層3の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 5.5977 -> 109.0000 (注入: 109.0000)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 5.0664 -> 123.0625 (注入: 123.0625)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 5.1445 -> 78.6250 (注入: 78.6250)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 5.7969 -> 75.1250 (注入: 75.1250)
+層3の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([3]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層3の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 5.7969 -> 126.5000 (注入: 126.5000)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 4.8672 -> 73.4375 (注入: 73.4375)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 5.1367 -> 126.5000 (注入: 126.5000)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 5.4727 -> 78.5625 (注入: 78.5625)
+層3の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([3]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層3の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 5.7969 -> 75.7500 (注入: 75.7500)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 5.7969 -> 129.7500 (注入: 129.7500)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 5.0312 -> 122.9375 (注入: 122.9375)
+層3の隠れ状態変化: MSE=0.000000
+成功: 層3の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 5.6250 -> 126.5000 (注入: 126.5000)
+層3の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([3]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層3の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 5.7969 -> 73.7500 (注入: 73.7500)
+層3の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層3の精度: 0.1200
+Debug: 層4のテスト中...
+Debug: modulated_generate開始 (層=4)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([4]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層4の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 6.9688 -> 122.9375 (注入: 122.9375)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 6.7578 -> 122.9375 (注入: 122.9375)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 6.6992 -> 122.9375 (注入: 122.9375)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 7.2812 -> 126.5000 (注入: 126.5000)
+層4の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([4]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層4の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 7.2812 -> 126.5000 (注入: 126.5000)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 6.8555 -> 126.5000 (注入: 126.5000)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 6.3047 -> 122.9375 (注入: 122.9375)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 7.1055 -> 77.6250 (注入: 77.6250)
+層4の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([4]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層4の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 6.7500 -> 70.6875 (注入: 70.6875)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 7.2812 -> 75.5000 (注入: 75.5000)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 7.2812 -> 122.9375 (注入: 122.9375)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 7.0156 -> 118.9375 (注入: 118.9375)
+層4の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([4]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層4の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 7.2188 -> 109.0000 (注入: 109.0000)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 6.9688 -> 123.0625 (注入: 123.0625)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 6.6953 -> 78.6250 (注入: 78.6250)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 7.2812 -> 75.1250 (注入: 75.1250)
+層4の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([4]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層4の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 7.2812 -> 126.5000 (注入: 126.5000)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 6.3867 -> 73.4375 (注入: 73.4375)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 6.8086 -> 126.5000 (注入: 126.5000)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 6.6992 -> 78.5625 (注入: 78.5625)
+層4の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([4]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層4の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 7.2812 -> 75.7500 (注入: 75.7500)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 7.2812 -> 129.7500 (注入: 129.7500)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 7.3125 -> 122.9375 (注入: 122.9375)
+層4の隠れ状態変化: MSE=0.000000
+成功: 層4の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 7.2773 -> 126.5000 (注入: 126.5000)
+層4の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([4]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層4の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 7.2812 -> 73.7500 (注入: 73.7500)
+層4の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層4の精度: 0.1200
+Debug: 層5のテスト中...
+Debug: modulated_generate開始 (層=5)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([5]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層5の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 8.5859 -> 122.9375 (注入: 122.9375)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 8.3359 -> 122.9375 (注入: 122.9375)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 8.0703 -> 122.9375 (注入: 122.9375)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 8.3906 -> 126.5000 (注入: 126.5000)
+層5の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([5]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層5の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 8.3906 -> 126.5000 (注入: 126.5000)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 8.1953 -> 126.5000 (注入: 126.5000)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 7.9141 -> 122.9375 (注入: 122.9375)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 8.3125 -> 77.6250 (注入: 77.6250)
+層5の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([5]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層5の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 8.1641 -> 70.6875 (注入: 70.6875)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 8.3906 -> 75.5000 (注入: 75.5000)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 8.3906 -> 122.9375 (注入: 122.9375)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 8.4375 -> 118.9375 (注入: 118.9375)
+層5の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([5]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層5の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 8.3828 -> 109.0000 (注入: 109.0000)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 8.5859 -> 123.0625 (注入: 123.0625)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 8.0625 -> 78.6250 (注入: 78.6250)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 8.3906 -> 75.1250 (注入: 75.1250)
+層5の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([5]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層5の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 8.3906 -> 126.5000 (注入: 126.5000)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 7.9961 -> 73.4375 (注入: 73.4375)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 8.1797 -> 126.5000 (注入: 126.5000)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 8.1016 -> 78.5625 (注入: 78.5625)
+層5の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([5]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層5の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 8.3906 -> 75.7500 (注入: 75.7500)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 8.3906 -> 129.7500 (注入: 129.7500)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 9.0938 -> 122.9375 (注入: 122.9375)
+層5の隠れ状態変化: MSE=0.000000
+成功: 層5の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 8.7812 -> 126.5000 (注入: 126.5000)
+層5の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([5]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層5の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 8.3906 -> 73.7500 (注入: 73.7500)
+層5の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層5の精度: 0.0800
+Debug: 層6のテスト中...
+Debug: modulated_generate開始 (層=6)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([6]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層6の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 9.9375 -> 122.9375 (注入: 122.9375)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 9.5781 -> 122.9375 (注入: 122.9375)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 9.1875 -> 122.9375 (注入: 122.9375)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 9.2812 -> 126.5000 (注入: 126.5000)
+層6の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([6]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層6の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 9.2812 -> 126.5000 (注入: 126.5000)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 9.5703 -> 126.5000 (注入: 126.5000)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 9.2812 -> 122.9375 (注入: 122.9375)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 9.4297 -> 77.6250 (注入: 77.6250)
+層6の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([6]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層6の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 9.6016 -> 70.6875 (注入: 70.6875)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 9.2812 -> 75.5000 (注入: 75.5000)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 9.2812 -> 122.9375 (注入: 122.9375)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 10.0000 -> 118.9375 (注入: 118.9375)
+層6の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([6]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層6の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 9.7891 -> 109.0000 (注入: 109.0000)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 9.9375 -> 123.0625 (注入: 123.0625)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 9.4844 -> 78.6250 (注入: 78.6250)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 9.2812 -> 75.1250 (注入: 75.1250)
+層6の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([6]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層6の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 9.2812 -> 126.5000 (注入: 126.5000)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 9.0547 -> 73.4375 (注入: 73.4375)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 9.7969 -> 126.5000 (注入: 126.5000)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 9.4609 -> 78.5625 (注入: 78.5625)
+層6の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([6]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層6の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 9.2812 -> 75.7500 (注入: 75.7500)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 9.2812 -> 129.7500 (注入: 129.7500)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 10.8594 -> 122.9375 (注入: 122.9375)
+層6の隠れ状態変化: MSE=0.000000
+成功: 層6の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 10.1250 -> 126.5000 (注入: 126.5000)
+層6の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([6]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層6の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 9.2812 -> 73.7500 (注入: 73.7500)
+層6の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層6の精度: 0.1600
+Debug: 層7のテスト中...
+Debug: modulated_generate開始 (層=7)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([7]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層7の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 12.1719 -> 122.9375 (注入: 122.9375)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 10.8047 -> 122.9375 (注入: 122.9375)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 10.8203 -> 122.9375 (注入: 122.9375)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 10.0391 -> 126.5000 (注入: 126.5000)
+層7の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([7]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層7の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 10.0391 -> 126.5000 (注入: 126.5000)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 10.8828 -> 126.5000 (注入: 126.5000)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 10.4688 -> 122.9375 (注入: 122.9375)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 10.6719 -> 77.6250 (注入: 77.6250)
+層7の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([7]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層7の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 10.5156 -> 70.6875 (注入: 70.6875)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 10.0391 -> 75.5000 (注入: 75.5000)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 10.0391 -> 122.9375 (注入: 122.9375)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 11.4141 -> 118.9375 (注入: 118.9375)
+層7の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([7]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層7の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 12.3281 -> 109.0000 (注入: 109.0000)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 12.1719 -> 123.0625 (注入: 123.0625)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 10.6094 -> 78.6250 (注入: 78.6250)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 10.0391 -> 75.1250 (注入: 75.1250)
+層7の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([7]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層7の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 10.0391 -> 126.5000 (注入: 126.5000)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 10.1719 -> 73.4375 (注入: 73.4375)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 10.8516 -> 126.5000 (注入: 126.5000)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 11.6484 -> 78.5625 (注入: 78.5625)
+層7の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([7]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層7の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 10.0391 -> 75.7500 (注入: 75.7500)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 10.0391 -> 129.7500 (注入: 129.7500)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 12.9375 -> 122.9375 (注入: 122.9375)
+層7の隠れ状態変化: MSE=0.000000
+成功: 層7の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 11.4922 -> 126.5000 (注入: 126.5000)
+層7の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([7]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層7の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 10.0469 -> 73.7500 (注入: 73.7500)
+層7の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層7の精度: 0.0800
+Debug: 層8のテスト中...
+Debug: modulated_generate開始 (層=8)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([8]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層8の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 13.2734 -> 122.9375 (注入: 122.9375)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 11.2891 -> 122.9375 (注入: 122.9375)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 11.6484 -> 122.9375 (注入: 122.9375)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 11.9453 -> 126.5000 (注入: 126.5000)
+層8の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([8]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層8の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 11.9453 -> 126.5000 (注入: 126.5000)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 11.6172 -> 126.5000 (注入: 126.5000)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 11.1094 -> 122.9375 (注入: 122.9375)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 11.3828 -> 77.6250 (注入: 77.6250)
+層8の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([8]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層8の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 11.5078 -> 70.6875 (注入: 70.6875)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 11.9453 -> 75.5000 (注入: 75.5000)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 11.9453 -> 122.9375 (注入: 122.9375)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 12.8516 -> 118.9375 (注入: 118.9375)
+層8の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([8]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層8の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 13.9141 -> 109.0000 (注入: 109.0000)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 13.2734 -> 123.0625 (注入: 123.0625)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 11.2656 -> 78.6250 (注入: 78.6250)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 11.9453 -> 75.1250 (注入: 75.1250)
+層8の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([8]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層8の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 11.9453 -> 126.5000 (注入: 126.5000)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 11.0000 -> 73.4375 (注入: 73.4375)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 11.7578 -> 126.5000 (注入: 126.5000)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 13.2734 -> 78.5625 (注入: 78.5625)
+層8の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([8]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層8の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 11.9453 -> 75.7500 (注入: 75.7500)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 11.9453 -> 129.7500 (注入: 129.7500)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 14.1172 -> 122.9375 (注入: 122.9375)
+層8の隠れ状態変化: MSE=0.000000
+成功: 層8の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 12.6562 -> 126.5000 (注入: 126.5000)
+層8の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([8]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層8の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 11.9453 -> 73.7500 (注入: 73.7500)
+層8の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層8の精度: 0.1600
+Debug: 層9のテスト中...
+Debug: modulated_generate開始 (層=9)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([9]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層9の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 15.0703 -> 122.9375 (注入: 122.9375)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 12.6250 -> 122.9375 (注入: 122.9375)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 12.9844 -> 122.9375 (注入: 122.9375)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 14.4375 -> 126.5000 (注入: 126.5000)
+層9の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([9]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層9の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 14.4375 -> 126.5000 (注入: 126.5000)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 12.6953 -> 126.5000 (注入: 126.5000)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 12.5625 -> 122.9375 (注入: 122.9375)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 13.1016 -> 77.6250 (注入: 77.6250)
+層9の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([9]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層9の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 12.8281 -> 70.6875 (注入: 70.6875)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 14.4375 -> 75.5000 (注入: 75.5000)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 14.4375 -> 122.9375 (注入: 122.9375)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 14.6641 -> 118.9375 (注入: 118.9375)
+層9の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([9]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層9の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 15.3906 -> 109.0000 (注入: 109.0000)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 15.0703 -> 123.0625 (注入: 123.0625)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 12.6484 -> 78.6250 (注入: 78.6250)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 14.4375 -> 75.1250 (注入: 75.1250)
+層9の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([9]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層9の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 14.4375 -> 126.5000 (注入: 126.5000)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 12.4297 -> 73.4375 (注入: 73.4375)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 13.2031 -> 126.5000 (注入: 126.5000)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 14.6406 -> 78.5625 (注入: 78.5625)
+層9の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([9]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層9の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 14.4375 -> 75.7500 (注入: 75.7500)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 14.4375 -> 129.7500 (注入: 129.7500)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 15.4609 -> 122.9375 (注入: 122.9375)
+層9の隠れ状態変化: MSE=0.000000
+成功: 層9の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 14.0156 -> 126.5000 (注入: 126.5000)
+層9の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([9]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層9の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 14.4375 -> 73.7500 (注入: 73.7500)
+層9の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層9の精度: 0.2400
+Debug: 層10のテスト中...
+Debug: modulated_generate開始 (層=10)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([10]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層10の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 16.6562 -> 122.9375 (注入: 122.9375)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 14.3438 -> 122.9375 (注入: 122.9375)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 14.5234 -> 122.9375 (注入: 122.9375)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 15.7969 -> 126.5000 (注入: 126.5000)
+層10の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([10]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層10の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 15.7969 -> 126.5000 (注入: 126.5000)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 14.2734 -> 126.5000 (注入: 126.5000)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 14.2188 -> 122.9375 (注入: 122.9375)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 14.6953 -> 77.6250 (注入: 77.6250)
+層10の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([10]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層10の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 14.4688 -> 70.6875 (注入: 70.6875)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 15.7969 -> 75.5000 (注入: 75.5000)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 15.7969 -> 122.9375 (注入: 122.9375)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 16.2188 -> 118.9375 (注入: 118.9375)
+層10の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([10]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層10の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 17.1406 -> 109.0000 (注入: 109.0000)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 16.6562 -> 123.0625 (注入: 123.0625)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 14.2891 -> 78.6250 (注入: 78.6250)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 15.7969 -> 75.1250 (注入: 75.1250)
+層10の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([10]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層10の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 15.7969 -> 126.5000 (注入: 126.5000)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 14.2344 -> 73.4375 (注入: 73.4375)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 15.3203 -> 126.5000 (注入: 126.5000)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 16.5938 -> 78.5625 (注入: 78.5625)
+層10の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([10]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層10の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 15.7969 -> 75.7500 (注入: 75.7500)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 15.7969 -> 129.7500 (注入: 129.7500)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 17.0625 -> 122.9375 (注入: 122.9375)
+層10の隠れ状態変化: MSE=0.000000
+成功: 層10の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 15.6953 -> 126.5000 (注入: 126.5000)
+層10の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([10]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層10の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 15.7969 -> 73.7500 (注入: 73.7500)
+層10の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層10の精度: 0.2800
+Debug: 層11のテスト中...
+Debug: modulated_generate開始 (層=11)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([11]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層11の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 18.0469 -> 122.9375 (注入: 122.9375)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 15.3672 -> 122.9375 (注入: 122.9375)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 16.0312 -> 122.9375 (注入: 122.9375)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 16.7188 -> 126.5000 (注入: 126.5000)
+層11の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([11]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層11の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 16.7188 -> 126.5000 (注入: 126.5000)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 15.1797 -> 126.5000 (注入: 126.5000)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 15.2812 -> 122.9375 (注入: 122.9375)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 15.9922 -> 77.6250 (注入: 77.6250)
+層11の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([11]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層11の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 15.6953 -> 70.6875 (注入: 70.6875)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 16.7188 -> 75.5000 (注入: 75.5000)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 16.7188 -> 122.9375 (注入: 122.9375)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 17.6719 -> 118.9375 (注入: 118.9375)
+層11の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([11]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層11の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 18.8906 -> 109.0000 (注入: 109.0000)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 18.0469 -> 123.0625 (注入: 123.0625)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 15.4766 -> 78.6250 (注入: 78.6250)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 16.7188 -> 75.1250 (注入: 75.1250)
+層11の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([11]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層11の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 16.7188 -> 126.5000 (注入: 126.5000)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 15.3984 -> 73.4375 (注入: 73.4375)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 16.7344 -> 126.5000 (注入: 126.5000)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 18.0781 -> 78.5625 (注入: 78.5625)
+層11の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([11]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層11の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 16.7188 -> 75.7500 (注入: 75.7500)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 16.7188 -> 129.7500 (注入: 129.7500)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 19.4688 -> 122.9375 (注入: 122.9375)
+層11の隠れ状態変化: MSE=0.000000
+成功: 層11の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 16.7656 -> 126.5000 (注入: 126.5000)
+層11の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([11]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層11の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 16.7344 -> 73.7500 (注入: 73.7500)
+層11の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層11の精度: 0.1200
+Debug: 層12のテスト中...
+Debug: modulated_generate開始 (層=12)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([12]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層12の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 19.9375 -> 122.9375 (注入: 122.9375)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 16.8750 -> 122.9375 (注入: 122.9375)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 17.1250 -> 122.9375 (注入: 122.9375)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 18.0312 -> 126.5000 (注入: 126.5000)
+層12の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([12]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層12の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 18.0312 -> 126.5000 (注入: 126.5000)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 16.7656 -> 126.5000 (注入: 126.5000)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 16.7031 -> 122.9375 (注入: 122.9375)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 17.3438 -> 77.6250 (注入: 77.6250)
+層12の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([12]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層12の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 17.1094 -> 70.6875 (注入: 70.6875)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 18.0312 -> 75.5000 (注入: 75.5000)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 18.0312 -> 122.9375 (注入: 122.9375)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 19.2031 -> 118.9375 (注入: 118.9375)
+層12の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([12]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層12の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 20.6406 -> 109.0000 (注入: 109.0000)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 19.9375 -> 123.0625 (注入: 123.0625)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 16.8594 -> 78.6250 (注入: 78.6250)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 18.0312 -> 75.1250 (注入: 75.1250)
+層12の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([12]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層12の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 18.0312 -> 126.5000 (注入: 126.5000)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 16.6562 -> 73.4375 (注入: 73.4375)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 17.9531 -> 126.5000 (注入: 126.5000)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 19.6406 -> 78.5625 (注入: 78.5625)
+層12の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([12]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層12の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 18.0312 -> 75.7500 (注入: 75.7500)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 18.0312 -> 129.7500 (注入: 129.7500)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 20.5312 -> 122.9375 (注入: 122.9375)
+層12の隠れ状態変化: MSE=0.000000
+成功: 層12の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 18.0781 -> 126.5000 (注入: 126.5000)
+層12の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([12]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層12の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 18.0312 -> 73.7500 (注入: 73.7500)
+層12の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層12の精度: 0.2000
+Debug: 層13のテスト中...
+Debug: modulated_generate開始 (層=13)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([13]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層13の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 22.3594 -> 122.9375 (注入: 122.9375)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 18.9844 -> 122.9375 (注入: 122.9375)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 18.6719 -> 122.9375 (注入: 122.9375)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 19.6406 -> 126.5000 (注入: 126.5000)
+層13の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([13]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層13の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 19.6406 -> 126.5000 (注入: 126.5000)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 18.2969 -> 126.5000 (注入: 126.5000)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 18.4219 -> 122.9375 (注入: 122.9375)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 18.7344 -> 77.6250 (注入: 77.6250)
+層13の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([13]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層13の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 19.0312 -> 70.6875 (注入: 70.6875)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 19.6406 -> 75.5000 (注入: 75.5000)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 19.6406 -> 122.9375 (注入: 122.9375)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 21.3125 -> 118.9375 (注入: 118.9375)
+層13の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([13]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層13の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 21.5625 -> 109.0000 (注入: 109.0000)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 22.3594 -> 123.0625 (注入: 123.0625)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 18.9375 -> 78.6250 (注入: 78.6250)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 19.6406 -> 75.1250 (注入: 75.1250)
+層13の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([13]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層13の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 19.6406 -> 126.5000 (注入: 126.5000)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 18.3594 -> 73.4375 (注入: 73.4375)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 20.4062 -> 126.5000 (注入: 126.5000)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 21.3125 -> 78.5625 (注入: 78.5625)
+層13の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([13]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層13の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 19.6406 -> 75.7500 (注入: 75.7500)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 19.6406 -> 129.7500 (注入: 129.7500)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 22.5156 -> 122.9375 (注入: 122.9375)
+層13の隠れ状態変化: MSE=0.000000
+成功: 層13の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 21.4219 -> 126.5000 (注入: 126.5000)
+層13の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([13]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層13の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 19.6406 -> 73.7500 (注入: 73.7500)
+層13の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層13の精度: 0.3200
+Debug: 層14のテスト中...
+Debug: modulated_generate開始 (層=14)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([14]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層14の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 24.3594 -> 122.9375 (注入: 122.9375)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 21.2969 -> 122.9375 (注入: 122.9375)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 22.5000 -> 122.9375 (注入: 122.9375)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 21.6250 -> 126.5000 (注入: 126.5000)
+層14の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([14]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層14の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 21.6250 -> 126.5000 (注入: 126.5000)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 23.3125 -> 126.5000 (注入: 126.5000)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 20.5312 -> 122.9375 (注入: 122.9375)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 21.7344 -> 77.6250 (注入: 77.6250)
+層14の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([14]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層14の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 21.1719 -> 70.6875 (注入: 70.6875)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 21.6250 -> 75.5000 (注入: 75.5000)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 21.6250 -> 122.9375 (注入: 122.9375)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 25.2031 -> 118.9375 (注入: 118.9375)
+層14の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([14]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層14の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 23.4531 -> 109.0000 (注入: 109.0000)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 24.3594 -> 123.0625 (注入: 123.0625)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 21.1250 -> 78.6250 (注入: 78.6250)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 21.6250 -> 75.1250 (注入: 75.1250)
+層14の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([14]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層14の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 21.6250 -> 126.5000 (注入: 126.5000)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 20.7656 -> 73.4375 (注入: 73.4375)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 23.9531 -> 126.5000 (注入: 126.5000)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 23.7188 -> 78.5625 (注入: 78.5625)
+層14の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([14]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層14の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 21.6250 -> 75.7500 (注入: 75.7500)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 21.6250 -> 129.7500 (注入: 129.7500)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 25.6875 -> 122.9375 (注入: 122.9375)
+層14の隠れ状態変化: MSE=0.000000
+成功: 層14の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 24.7812 -> 126.5000 (注入: 126.5000)
+層14の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([14]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層14の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 21.6250 -> 73.7500 (注入: 73.7500)
+層14の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層14の精度: 0.1200
+Debug: 層15のテスト中...
+Debug: modulated_generate開始 (層=15)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([15]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層15の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 28.5781 -> 122.9375 (注入: 122.9375)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 26.1562 -> 122.9375 (注入: 122.9375)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 25.2188 -> 122.9375 (注入: 122.9375)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 26.0625 -> 126.5000 (注入: 126.5000)
+層15の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([15]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層15の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 26.0625 -> 126.5000 (注入: 126.5000)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 26.0312 -> 126.5000 (注入: 126.5000)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 25.1250 -> 122.9375 (注入: 122.9375)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 25.8906 -> 77.6250 (注入: 77.6250)
+層15の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([15]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層15の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 26.4688 -> 70.6875 (注入: 70.6875)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 26.0625 -> 75.5000 (注入: 75.5000)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 26.0625 -> 122.9375 (注入: 122.9375)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 28.2969 -> 118.9375 (注入: 118.9375)
+層15の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([15]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層15の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 28.0000 -> 109.0000 (注入: 109.0000)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 28.5781 -> 123.0625 (注入: 123.0625)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 25.3750 -> 78.6250 (注入: 78.6250)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 26.0625 -> 75.1250 (注入: 75.1250)
+層15の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([15]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層15の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 26.0625 -> 126.5000 (注入: 126.5000)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 24.6562 -> 73.4375 (注入: 73.4375)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 26.4688 -> 126.5000 (注入: 126.5000)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 27.7188 -> 78.5625 (注入: 78.5625)
+層15の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([15]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層15の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 26.0625 -> 75.7500 (注入: 75.7500)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 26.0625 -> 129.7500 (注入: 129.7500)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 28.4375 -> 122.9375 (注入: 122.9375)
+層15の隠れ状態変化: MSE=0.000000
+成功: 層15の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 26.8906 -> 126.5000 (注入: 126.5000)
+層15の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([15]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層15の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 26.0781 -> 73.7500 (注入: 73.7500)
+層15の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層15の精度: 0.2400
+Debug: 層16のテスト中...
+Debug: modulated_generate開始 (層=16)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([16]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層16の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 32.7500 -> 122.9375 (注入: 122.9375)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 30.6250 -> 122.9375 (注入: 122.9375)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 29.6250 -> 122.9375 (注入: 122.9375)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 30.3594 -> 126.5000 (注入: 126.5000)
+層16の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([16]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層16の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 30.3594 -> 126.5000 (注入: 126.5000)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 31.1562 -> 126.5000 (注入: 126.5000)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 30.1562 -> 122.9375 (注入: 122.9375)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 29.7031 -> 77.6250 (注入: 77.6250)
+層16の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([16]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層16の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 30.1875 -> 70.6875 (注入: 70.6875)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 30.3594 -> 75.5000 (注入: 75.5000)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 30.3594 -> 122.9375 (注入: 122.9375)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 34.4375 -> 118.9375 (注入: 118.9375)
+層16の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([16]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層16の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 30.6562 -> 109.0000 (注入: 109.0000)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 32.7500 -> 123.0625 (注入: 123.0625)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 31.2344 -> 78.6250 (注入: 78.6250)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 30.3594 -> 75.1250 (注入: 75.1250)
+層16の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([16]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層16の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 30.3594 -> 126.5000 (注入: 126.5000)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 29.8281 -> 73.4375 (注入: 73.4375)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 30.8594 -> 126.5000 (注入: 126.5000)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 31.3750 -> 78.5625 (注入: 78.5625)
+層16の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([16]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層16の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 30.3594 -> 75.7500 (注入: 75.7500)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 30.3594 -> 129.7500 (注入: 129.7500)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 32.1875 -> 122.9375 (注入: 122.9375)
+層16の隠れ状態変化: MSE=0.000000
+成功: 層16の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 33.5312 -> 126.5000 (注入: 126.5000)
+層16の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([16]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層16の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 30.3594 -> 73.7500 (注入: 73.7500)
+層16の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層16の精度: 0.2000
+Debug: 層17のテスト中...
+Debug: modulated_generate開始 (層=17)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([17]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層17の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 35.9688 -> 122.9375 (注入: 122.9375)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 36.8750 -> 122.9375 (注入: 122.9375)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 35.9062 -> 122.9375 (注入: 122.9375)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 35.1875 -> 126.5000 (注入: 126.5000)
+層17の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([17]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層17の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 35.1875 -> 126.5000 (注入: 126.5000)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 34.2188 -> 126.5000 (注入: 126.5000)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 35.8438 -> 122.9375 (注入: 122.9375)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 36.2188 -> 77.6250 (注入: 77.6250)
+層17の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([17]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層17の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 35.1250 -> 70.6875 (注入: 70.6875)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 35.1875 -> 75.5000 (注入: 75.5000)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 35.1875 -> 122.9375 (注入: 122.9375)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 37.3750 -> 118.9375 (注入: 118.9375)
+層17の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([17]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層17の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 34.5938 -> 109.0000 (注入: 109.0000)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 35.9688 -> 123.0625 (注入: 123.0625)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 34.7500 -> 78.6250 (注入: 78.6250)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 35.1875 -> 75.1250 (注入: 75.1250)
+層17の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([17]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層17の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 35.1875 -> 126.5000 (注入: 126.5000)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 35.9062 -> 73.4375 (注入: 73.4375)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 36.2188 -> 126.5000 (注入: 126.5000)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 33.6562 -> 78.5625 (注入: 78.5625)
+層17の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([17]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層17の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 35.1875 -> 75.7500 (注入: 75.7500)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 35.1875 -> 129.7500 (注入: 129.7500)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 36.3438 -> 122.9375 (注入: 122.9375)
+層17の隠れ状態変化: MSE=0.000000
+成功: 層17の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 38.2812 -> 126.5000 (注入: 126.5000)
+層17の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([17]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層17の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 35.1875 -> 73.7500 (注入: 73.7500)
+層17の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層17の精度: 0.2400
+Debug: 層18のテスト中...
+Debug: modulated_generate開始 (層=18)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([18]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層18の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 41.5000 -> 122.9375 (注入: 122.9375)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 41.8125 -> 122.9375 (注入: 122.9375)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 42.6875 -> 122.9375 (注入: 122.9375)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 41.5625 -> 126.5000 (注入: 126.5000)
+層18の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([18]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層18の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 41.5625 -> 126.5000 (注入: 126.5000)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 40.8125 -> 126.5000 (注入: 126.5000)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 41.1250 -> 122.9375 (注入: 122.9375)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 42.0000 -> 77.6250 (注入: 77.6250)
+層18の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([18]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層18の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 42.4062 -> 70.6875 (注入: 70.6875)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 41.5625 -> 75.5000 (注入: 75.5000)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 41.5625 -> 122.9375 (注入: 122.9375)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 46.7500 -> 118.9375 (注入: 118.9375)
+層18の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([18]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層18の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 42.7500 -> 109.0000 (注入: 109.0000)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 41.5000 -> 123.0625 (注入: 123.0625)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 41.6875 -> 78.6250 (注入: 78.6250)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 41.5625 -> 75.1250 (注入: 75.1250)
+層18の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([18]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層18の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 41.5625 -> 126.5000 (注入: 126.5000)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 40.2188 -> 73.4375 (注入: 73.4375)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 43.1562 -> 126.5000 (注入: 126.5000)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 43.1250 -> 78.5625 (注入: 78.5625)
+層18の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([18]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層18の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 41.5625 -> 75.7500 (注入: 75.7500)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 41.5625 -> 129.7500 (注入: 129.7500)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 41.9375 -> 122.9375 (注入: 122.9375)
+層18の隠れ状態変化: MSE=0.000000
+成功: 層18の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 44.6875 -> 126.5000 (注入: 126.5000)
+層18の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([18]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層18の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 41.5625 -> 73.7500 (注入: 73.7500)
+層18の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層18の精度: 0.2800
+Debug: 層19のテスト中...
+Debug: modulated_generate開始 (層=19)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([19]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層19の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 46.0625 -> 122.9375 (注入: 122.9375)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 48.9688 -> 122.9375 (注入: 122.9375)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 50.0938 -> 122.9375 (注入: 122.9375)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 48.2188 -> 126.5000 (注入: 126.5000)
+層19の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([19]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層19の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 48.2188 -> 126.5000 (注入: 126.5000)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 48.5938 -> 126.5000 (注入: 126.5000)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 49.6875 -> 122.9375 (注入: 122.9375)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 48.4062 -> 77.6250 (注入: 77.6250)
+層19の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([19]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層19の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 50.8438 -> 70.6875 (注入: 70.6875)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 48.2188 -> 75.5000 (注入: 75.5000)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 48.2188 -> 122.9375 (注入: 122.9375)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 52.0312 -> 118.9375 (注入: 118.9375)
+層19の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([19]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層19の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 47.2188 -> 109.0000 (注入: 109.0000)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 46.0625 -> 123.0625 (注入: 123.0625)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 49.5312 -> 78.6250 (注入: 78.6250)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 48.2188 -> 75.1250 (注入: 75.1250)
+層19の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([19]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層19の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 48.2188 -> 126.5000 (注入: 126.5000)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 50.1562 -> 73.4375 (注入: 73.4375)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 49.1875 -> 126.5000 (注入: 126.5000)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 47.1250 -> 78.5625 (注入: 78.5625)
+層19の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([19]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層19の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 48.2188 -> 75.7500 (注入: 75.7500)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 48.2188 -> 129.7500 (注入: 129.7500)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 46.0938 -> 122.9375 (注入: 122.9375)
+層19の隠れ状態変化: MSE=0.000000
+成功: 層19の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 50.5625 -> 126.5000 (注入: 126.5000)
+層19の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([19]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層19の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 48.2188 -> 73.7500 (注入: 73.7500)
+層19の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層19の精度: 0.2000
+Debug: 層20のテスト中...
+Debug: modulated_generate開始 (層=20)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([20]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層20の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 50.8438 -> 122.9375 (注入: 122.9375)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 56.5625 -> 122.9375 (注入: 122.9375)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 58.4688 -> 122.9375 (注入: 122.9375)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 54.0312 -> 126.5000 (注入: 126.5000)
+層20の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([20]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層20の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 54.0312 -> 126.5000 (注入: 126.5000)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 56.3750 -> 126.5000 (注入: 126.5000)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 58.0312 -> 122.9375 (注入: 122.9375)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 60.6875 -> 77.6250 (注入: 77.6250)
+層20の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([20]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層20の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 57.2812 -> 70.6875 (注入: 70.6875)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 54.0312 -> 75.5000 (注入: 75.5000)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 54.0312 -> 122.9375 (注入: 122.9375)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 58.7188 -> 118.9375 (注入: 118.9375)
+層20の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([20]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層20の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 52.5625 -> 109.0000 (注入: 109.0000)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 50.8438 -> 123.0625 (注入: 123.0625)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 57.6875 -> 78.6250 (注入: 78.6250)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 54.0312 -> 75.1250 (注入: 75.1250)
+層20の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([20]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層20の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 54.0312 -> 126.5000 (注入: 126.5000)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 57.2812 -> 73.4375 (注入: 73.4375)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 55.5938 -> 126.5000 (注入: 126.5000)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 52.9062 -> 78.5625 (注入: 78.5625)
+層20の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([20]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層20の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 54.0312 -> 75.7500 (注入: 75.7500)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 54.0312 -> 129.7500 (注入: 129.7500)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 53.6250 -> 122.9375 (注入: 122.9375)
+層20の隠れ状態変化: MSE=0.000000
+成功: 層20の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 60.2188 -> 126.5000 (注入: 126.5000)
+層20の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([20]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層20の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 54.0312 -> 73.7500 (注入: 73.7500)
+層20の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層20の精度: 0.2400
+Debug: 層21のテスト中...
+Debug: modulated_generate開始 (層=21)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([21]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層21の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 55.1875 -> 122.9375 (注入: 122.9375)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 64.2500 -> 122.9375 (注入: 122.9375)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 66.0625 -> 122.9375 (注入: 122.9375)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 60.7188 -> 126.5000 (注入: 126.5000)
+層21の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([21]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層21の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 60.7188 -> 126.5000 (注入: 126.5000)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 62.1250 -> 126.5000 (注入: 126.5000)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 64.6250 -> 122.9375 (注入: 122.9375)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 67.3750 -> 77.6250 (注入: 77.6250)
+層21の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([21]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層21の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 62.5938 -> 70.6875 (注入: 70.6875)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 60.7188 -> 75.5000 (注入: 75.5000)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 60.7188 -> 122.9375 (注入: 122.9375)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 63.8438 -> 118.9375 (注入: 118.9375)
+層21の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([21]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層21の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 56.3125 -> 109.0000 (注入: 109.0000)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 55.1875 -> 123.0625 (注入: 123.0625)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 65.3125 -> 78.6250 (注入: 78.6250)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 60.7188 -> 75.1250 (注入: 75.1250)
+層21の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([21]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層21の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 60.7188 -> 126.5000 (注入: 126.5000)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 63.7500 -> 73.4375 (注入: 73.4375)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 60.3125 -> 126.5000 (注入: 126.5000)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 56.8750 -> 78.5625 (注入: 78.5625)
+層21の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([21]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層21の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 60.7188 -> 75.7500 (注入: 75.7500)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 60.7188 -> 129.7500 (注入: 129.7500)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 57.9062 -> 122.9375 (注入: 122.9375)
+層21の隠れ状態変化: MSE=0.000000
+成功: 層21の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 68.1875 -> 126.5000 (注入: 126.5000)
+層21の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([21]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層21の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 60.7188 -> 73.7500 (注入: 73.7500)
+層21の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層21の精度: 0.2400
+Debug: 層22のテスト中...
+Debug: modulated_generate開始 (層=22)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([22]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層22の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 60.2188 -> 122.9375 (注入: 122.9375)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 71.8125 -> 122.9375 (注入: 122.9375)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 71.8750 -> 122.9375 (注入: 122.9375)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 68.1875 -> 126.5000 (注入: 126.5000)
+層22の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([22]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層22の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 68.1875 -> 126.5000 (注入: 126.5000)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 68.1875 -> 126.5000 (注入: 126.5000)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 72.7500 -> 122.9375 (注入: 122.9375)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 73.7500 -> 77.6250 (注入: 77.6250)
+層22の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([22]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層22の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 70.3125 -> 70.6875 (注入: 70.6875)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 68.1875 -> 75.5000 (注入: 75.5000)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 68.1875 -> 122.9375 (注入: 122.9375)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 69.2500 -> 118.9375 (注入: 118.9375)
+層22の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([22]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層22の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 61.8750 -> 109.0000 (注入: 109.0000)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 60.2188 -> 123.0625 (注入: 123.0625)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 72.6875 -> 78.6250 (注入: 78.6250)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 68.1875 -> 75.1250 (注入: 75.1250)
+層22の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([22]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層22の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 68.1875 -> 126.5000 (注入: 126.5000)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 71.3750 -> 73.4375 (注入: 73.4375)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 64.9375 -> 126.5000 (注入: 126.5000)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 61.1562 -> 78.5625 (注入: 78.5625)
+層22の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([22]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層22の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 68.1875 -> 75.7500 (注入: 75.7500)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 68.1875 -> 129.7500 (注入: 129.7500)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 62.4375 -> 122.9375 (注入: 122.9375)
+層22の隠れ状態変化: MSE=0.000000
+成功: 層22の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 74.3750 -> 126.5000 (注入: 126.5000)
+層22の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([22]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層22の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 68.1875 -> 73.7500 (注入: 73.7500)
+層22の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層22の精度: 0.2000
+Debug: 層23のテスト中...
+Debug: modulated_generate開始 (層=23)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([23]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層23の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 65.1875 -> 122.9375 (注入: 122.9375)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 79.0000 -> 122.9375 (注入: 122.9375)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 77.8125 -> 122.9375 (注入: 122.9375)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 72.8125 -> 126.5000 (注入: 126.5000)
+層23の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([23]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層23の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 72.8125 -> 126.5000 (注入: 126.5000)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 73.7500 -> 126.5000 (注入: 126.5000)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 81.4375 -> 122.9375 (注入: 122.9375)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 78.8125 -> 77.6250 (注入: 77.6250)
+層23の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([23]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層23の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 76.1875 -> 70.6875 (注入: 70.6875)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 72.8125 -> 75.5000 (注入: 75.5000)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 72.8125 -> 122.9375 (注入: 122.9375)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 73.5625 -> 118.9375 (注入: 118.9375)
+層23の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([23]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層23の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 67.0625 -> 109.0000 (注入: 109.0000)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 65.1875 -> 123.0625 (注入: 123.0625)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 79.2500 -> 78.6250 (注入: 78.6250)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 72.8125 -> 75.1250 (注入: 75.1250)
+層23の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([23]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層23の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 72.8125 -> 126.5000 (注入: 126.5000)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 79.6875 -> 73.4375 (注入: 73.4375)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 69.0000 -> 126.5000 (注入: 126.5000)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 65.0625 -> 78.5625 (注入: 78.5625)
+層23の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([23]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層23の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 72.8125 -> 75.7500 (注入: 75.7500)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 72.8125 -> 129.7500 (注入: 129.7500)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 70.6250 -> 122.9375 (注入: 122.9375)
+層23の隠れ状態変化: MSE=0.000000
+成功: 層23の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 80.0625 -> 126.5000 (注入: 126.5000)
+層23の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([23]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層23の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 72.8125 -> 73.7500 (注入: 73.7500)
+層23の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層23の精度: 0.2400
+Debug: 層24のテスト中...
+Debug: modulated_generate開始 (層=24)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([24]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層24の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 69.8125 -> 122.9375 (注入: 122.9375)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 83.9375 -> 122.9375 (注入: 122.9375)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 82.0625 -> 122.9375 (注入: 122.9375)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 81.5000 -> 126.5000 (注入: 126.5000)
+層24の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([24]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層24の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 81.5000 -> 126.5000 (注入: 126.5000)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 77.5000 -> 126.5000 (注入: 126.5000)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 87.8125 -> 122.9375 (注入: 122.9375)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 83.5625 -> 77.6250 (注入: 77.6250)
+層24の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([24]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層24の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 82.3125 -> 70.6875 (注入: 70.6875)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 81.5000 -> 75.5000 (注入: 75.5000)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 81.5000 -> 122.9375 (注入: 122.9375)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 76.6250 -> 118.9375 (注入: 118.9375)
+層24の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([24]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層24の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 72.3750 -> 109.0000 (注入: 109.0000)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 69.8125 -> 123.0625 (注入: 123.0625)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 84.6250 -> 78.6250 (注入: 78.6250)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 81.5000 -> 75.1250 (注入: 75.1250)
+層24の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([24]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層24の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 81.5000 -> 126.5000 (注入: 126.5000)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 85.7500 -> 73.4375 (注入: 73.4375)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 72.5625 -> 126.5000 (注入: 126.5000)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 68.3750 -> 78.5625 (注入: 78.5625)
+層24の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([24]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層24の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 81.5000 -> 75.7500 (注入: 75.7500)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 81.5000 -> 129.7500 (注入: 129.7500)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 76.5625 -> 122.9375 (注入: 122.9375)
+層24の隠れ状態変化: MSE=0.000000
+成功: 層24の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 87.6875 -> 126.5000 (注入: 126.5000)
+層24の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([24]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層24の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 81.5000 -> 73.7500 (注入: 73.7500)
+層24の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層24の精度: 0.3200
+Debug: 層25のテスト中...
+Debug: modulated_generate開始 (層=25)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([25]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層25の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 74.5625 -> 122.9375 (注入: 122.9375)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 90.5000 -> 122.9375 (注入: 122.9375)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 88.0000 -> 122.9375 (注入: 122.9375)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 83.8750 -> 126.5000 (注入: 126.5000)
+層25の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([25]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層25の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 83.8750 -> 126.5000 (注入: 126.5000)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 82.5625 -> 126.5000 (注入: 126.5000)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 94.0000 -> 122.9375 (注入: 122.9375)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 88.8750 -> 77.6250 (注入: 77.6250)
+層25の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([25]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層25の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 88.5000 -> 70.6875 (注入: 70.6875)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 83.8750 -> 75.5000 (注入: 75.5000)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 83.8750 -> 122.9375 (注入: 122.9375)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 81.1875 -> 118.9375 (注入: 118.9375)
+層25の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([25]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層25の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 78.4375 -> 109.0000 (注入: 109.0000)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 74.5625 -> 123.0625 (注入: 123.0625)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 89.8750 -> 78.6250 (注入: 78.6250)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 83.8750 -> 75.1250 (注入: 75.1250)
+層25の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([25]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層25の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 83.8750 -> 126.5000 (注入: 126.5000)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 91.5625 -> 73.4375 (注入: 73.4375)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 77.6250 -> 126.5000 (注入: 126.5000)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 73.0000 -> 78.5625 (注入: 78.5625)
+層25の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([25]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層25の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 83.8750 -> 75.7500 (注入: 75.7500)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 83.8750 -> 129.7500 (注入: 129.7500)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 81.0625 -> 122.9375 (注入: 122.9375)
+層25の隠れ状態変化: MSE=0.000000
+成功: 層25の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 92.8750 -> 126.5000 (注入: 126.5000)
+層25の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([25]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層25の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 83.8750 -> 73.7500 (注入: 73.7500)
+層25の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層25の精度: 0.4000
+Debug: 層26のテスト中...
+Debug: modulated_generate開始 (層=26)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([26]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層26の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 77.9375 -> 122.9375 (注入: 122.9375)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 95.2500 -> 122.9375 (注入: 122.9375)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 91.0625 -> 122.9375 (注入: 122.9375)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 93.4375 -> 126.5000 (注入: 126.5000)
+層26の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([26]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層26の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 93.4375 -> 126.5000 (注入: 126.5000)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 85.3125 -> 126.5000 (注入: 126.5000)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 100.7500 -> 122.9375 (注入: 122.9375)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 91.9375 -> 77.6250 (注入: 77.6250)
+層26の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([26]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層26の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 93.3750 -> 70.6875 (注入: 70.6875)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 93.4375 -> 75.5000 (注入: 75.5000)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 93.4375 -> 122.9375 (注入: 122.9375)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 87.5000 -> 118.9375 (注入: 118.9375)
+層26の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([26]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層26の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 84.7500 -> 109.0000 (注入: 109.0000)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 77.9375 -> 123.0625 (注入: 123.0625)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 93.1250 -> 78.6250 (注入: 78.6250)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 93.4375 -> 75.1250 (注入: 75.1250)
+層26の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([26]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層26の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 93.4375 -> 126.5000 (注入: 126.5000)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 97.7500 -> 73.4375 (注入: 73.4375)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 81.2500 -> 126.5000 (注入: 126.5000)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 77.6875 -> 78.5625 (注入: 78.5625)
+層26の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([26]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層26の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 93.4375 -> 75.7500 (注入: 75.7500)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 93.4375 -> 129.7500 (注入: 129.7500)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 85.6250 -> 122.9375 (注入: 122.9375)
+層26の隠れ状態変化: MSE=0.000000
+成功: 層26の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 97.4375 -> 126.5000 (注入: 126.5000)
+層26の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([26]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層26の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 93.4375 -> 73.7500 (注入: 73.7500)
+層26の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層26の精度: 0.2800
+Debug: 層27のテスト中...
+Debug: modulated_generate開始 (層=27)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([27]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層27の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 81.8750 -> 122.9375 (注入: 122.9375)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 100.1875 -> 122.9375 (注入: 122.9375)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 95.6250 -> 122.9375 (注入: 122.9375)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 98.2500 -> 126.5000 (注入: 126.5000)
+層27の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([27]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層27の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 98.2500 -> 126.5000 (注入: 126.5000)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 89.8750 -> 126.5000 (注入: 126.5000)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 105.6250 -> 122.9375 (注入: 122.9375)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 95.8125 -> 77.6250 (注入: 77.6250)
+層27の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([27]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層27の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 97.2500 -> 70.6875 (注入: 70.6875)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 98.2500 -> 75.5000 (注入: 75.5000)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 98.2500 -> 122.9375 (注入: 122.9375)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 91.3750 -> 118.9375 (注入: 118.9375)
+層27の隠れ状態変化: MSE=0.000000
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([27]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層27の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 92.3125 -> 109.0000 (注入: 109.0000)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 81.8750 -> 123.0625 (注入: 123.0625)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 97.1250 -> 78.6250 (注入: 78.6250)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 98.2500 -> 75.1250 (注入: 75.1250)
+層27の隠れ状態変化: MSE=0.000000
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([27]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層27の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 98.2500 -> 126.5000 (注入: 126.5000)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 101.3750 -> 73.4375 (注入: 73.4375)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 86.1875 -> 126.5000 (注入: 126.5000)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 81.4375 -> 78.5625 (注入: 78.5625)
+層27の隠れ状態変化: MSE=0.000000
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([27]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層27の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 98.2500 -> 75.7500 (注入: 75.7500)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 98.2500 -> 129.7500 (注入: 129.7500)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 89.5625 -> 122.9375 (注入: 122.9375)
+層27の隠れ状態変化: MSE=0.000000
+成功: 層27の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 101.8750 -> 126.5000 (注入: 126.5000)
+層27の隠れ状態変化: MSE=0.000000
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([27]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+/opt/conda/conda-bld/pytorch_1729647352509/work/aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Traceback (most recent call last):
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 273, in modulated_generate
+    outputs = model.generate(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 2223, in generate
+    result = self._sample(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 3200, in _sample
+    while self._has_unfinished_sequences(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 2401, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 273, in modulated_generate
+    outputs = model.generate(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 2004, in generate
+    self._prepare_special_tokens(generation_config, kwargs_has_attention_mask, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1819, in _prepare_special_tokens
+    bos_token_tensor = _tensor_or_none(generation_config.bos_token_id, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1817, in _tensor_or_none
+    return torch.tensor(token, device=device, dtype=torch.long)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 273, in modulated_generate
+    outputs = model.generate(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 2004, in generate
+    self._prepare_special_tokens(generation_config, kwargs_has_attention_mask, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1819, in _prepare_special_tokens
+    bos_token_tensor = _tensor_or_none(generation_config.bos_token_id, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1817, in _tensor_or_none
+    return torch.tensor(token, device=device, dtype=torch.long)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 273, in modulated_generate
+    outputs = model.generate(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 2004, in generate
+    self._prepare_special_tokens(generation_config, kwargs_has_attention_mask, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1819, in _prepare_special_tokens
+    bos_token_tensor = _tensor_or_none(generation_config.bos_token_id, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1817, in _tensor_or_none
+    return torch.tensor(token, device=device, dtype=torch.long)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 273, in modulated_generate
+    outputs = model.generate(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 2004, in generate
+    self._prepare_special_tokens(generation_config, kwargs_has_attention_mask, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1819, in _prepare_special_tokens
+    bos_token_tensor = _tensor_or_none(generation_config.bos_token_id, device=device)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/generation/utils.py", line 1817, in _tensor_or_none
+    return torch.tensor(token, device=device, dtype=torch.long)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層27の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 98.2500 -> 73.7500 (注入: 73.7500)
+層27の隠れ状態変化: MSE=0.000000
+Debug: 予測完了、25個の回答を生成
+Debug: 層27の精度: 0.1200
+Debug: 層28のテスト中...
+Debug: modulated_generate開始 (層=28)
+Debug: モデルのデータ型: torch.float16
+Debug: バッチ 1 処理中 (0〜3)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([28]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層28の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 85.7500 -> 122.9375 (注入: 122.9375)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 107.0625 -> 122.9375 (注入: 122.9375)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 100.4375 -> 122.9375 (注入: 122.9375)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 104.2500 -> 126.5000 (注入: 126.5000)
+層28の隠れ状態変化: MSE=0.000000
+Debug: バッチ 2 処理中 (4〜7)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([28]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層28の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 104.2500 -> 126.5000 (注入: 126.5000)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 96.0000 -> 126.5000 (注入: 126.5000)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 112.7500 -> 122.9375 (注入: 122.9375)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 102.0000 -> 77.6250 (注入: 77.6250)
+層28の隠れ状態変化: MSE=0.000000
+Debug: バッチ 3 処理中 (8〜11)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([28]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+成功: 層28の位置4に隠れ状態を注入しました（バッチ0）
+  ノルム変化: 103.3125 -> 70.6875 (注入: 70.6875)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ1）
+  ノルム変化: 104.2500 -> 75.5000 (注入: 75.5000)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ2）
+  ノルム変化: 104.2500 -> 122.9375 (注入: 122.9375)
+層28の隠れ状態変化: MSE=0.000000
+成功: 層28の位置4に隠れ状態を注入しました（バッチ3）
+  ノルム変化: 96.0625 -> 118.9375 (注入: 118.9375)
+層28の隠れ状態変化: MSE=0.000000
+警告: バッチ8〜11の生成中にエラーが発生しました: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Debug: バッチ 4 処理中 (12〜15)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([28]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+警告: バッチ12〜15の生成中にエラーが発生しました: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Debug: バッチ 5 処理中 (16〜19)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([28]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+警告: バッチ16〜19の生成中にエラーが発生しました: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Debug: バッチ 6 処理中 (20〜23)
+Debug: バッチの隠れ状態の形状: torch.Size([4, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([28]), positions shape: torch.Size([4]), hiddens shape: torch.Size([4, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+警告: バッチ20〜23の生成中にエラーが発生しました: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Debug: バッチ 7 処理中 (24〜24)
+Debug: バッチの隠れ状態の形状: torch.Size([1, 1, 44, 4096])
+Debug: HiddenInjector initialized - layers shape: torch.Size([28]), positions shape: torch.Size([4]), hiddens shape: torch.Size([1, 1, 44, 4096])
+Debug: Model has 32 layers, dtype torch.float16
+Debug: Injection success rate: 32/32 (100.00%)
+Debug: generate_kwargs keys: dict_keys(['do_sample', 'temperature', 'top_p', 'max_new_tokens', 'past_key_values'])
+Debug: batch_inputs keys: dict_keys(['input_ids', 'attention_mask'])
+警告: バッチ24〜24の生成中にエラーが発生しました: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 210, in <module>
+    main()
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 194, in main
+    run_main_experiment(model_type, model_variant, experiment_id=experiment_id, 
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 150, in run_main_experiment
+    accuracies, tv_ordered_tokens_by_layer = evaluate_task(model, tokenizer, task_name, num_examples)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 79, in evaluate_task
+    tv_predictions, tv_dev_accuracy_by_layer, task_hiddens = run_task_vector(
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 88, in run_task_vector
+    dev_accuracy_by_layer = task_vector_accuracy_by_layer(
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 168, in task_vector_accuracy_by_layer
+    answers = modulated_generate(
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 207, in modulated_generate
+    _move_inputs_to_device(inputs, model.device)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 32, in _move_inputs_to_device
+    inputs[k] = v.to(device)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Debug: 予測完了、25個の回答を生成
+Debug: 層28の精度: 0.0800
+Debug: 層29のテスト中...
+Debug: modulated_generate開始 (層=29)
