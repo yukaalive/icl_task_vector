@@ -1,0 +1,61 @@
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /root/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+Traceback (most recent call last):
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/utils/hub.py", line 342, in cached_file
+    resolved_file = hf_hub_download(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py", line 862, in hf_hub_download
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py", line 1486, in _raise_on_head_call_error
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py", line 280, in _request_wrapper
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py", line 304, in _request_wrapper
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/utils/_http.py", line 426, in hf_raise_for_status
+huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-67ccd1b9-6bd264d96d4860714e2c14fa;8c285c7f-cac7-4ebd-953b-e735f50e1c63)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-hf is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 210, in <module>
+    main()
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 193, in main
+    model, tokenizer = load_model_and_tokenizer(model_type, model_variant)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/models/llm_loading.py", line 102, in load_model_and_tokenizer
+    tokenizer = load_tokenizer(model_type, model_variant)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/models/llm_loading.py", line 93, in load_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_path, padding_side="left")
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 901, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 1075, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/configuration_utils.py", line 594, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/configuration_utils.py", line 653, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/site-packages/transformers/utils/hub.py", line 360, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-hf.
+401 Client Error. (Request ID: Root=1-67ccd1b9-6bd264d96d4860714e2c14fa;8c285c7f-cac7-4ebd-953b-e735f50e1c63)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-hf is restricted. You must have access to it and be authenticated to access it. Please log in.
