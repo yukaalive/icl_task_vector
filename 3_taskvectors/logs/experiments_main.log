@@ -1,0 +1,30 @@
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /root/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+Evaluating model: meta-llama Llama-2-7b-hf
+Loading model and tokenizer...
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.12s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.26s/it]
+Some parameters are on the meta device because they were offloaded to the cpu.
+Loaded model and tokenizer.
+WARNING: mapping singular_plural has only 31 examples after filtering (173 before)
+WARNING: mapping plural_singular has only 44 examples after filtering (172 before)
+
+==================================================
+Running task 1/27: translation_fr_en
+Traceback (most recent call last):
+  File "/opt/miniconda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/miniconda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 160, in <module>
+    main()
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 148, in main
+    run_main_experiment(model_type, model_variant, experiment_id=experiment_id)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 112, in run_main_experiment
+    accuracies, tv_ordered_tokens_by_layer = evaluate_task(model, tokenizer, task_name, num_examples)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 48, in evaluate_task
+    tv_predictions, tv_dev_accuracy_by_layer, task_hiddens = run_task_vector(
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 95, in run_task_vector
+    layers_to_test=layers_to_test,
+NameError: name 'layers_to_test' is not defined. Did you mean: 'layers_to_Test'?
