@@ -1,0 +1,276 @@
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /root/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.39s/it]
+Traceback (most recent call last):
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/conda/envs/icl_task_vectors/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 210, in <module>
+    main()
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 194, in main
+    run_main_experiment(model_type, model_variant, experiment_id=experiment_id, 
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 150, in run_main_experiment
+    accuracies, tv_ordered_tokens_by_layer = evaluate_task(model, tokenizer, task_name, num_examples)
+  File "/home/yukaalive/2025workspace/icl_task_vectors/scripts/experiments/main.py", line 79, in evaluate_task
+    tv_predictions, tv_dev_accuracy_by_layer, task_hiddens = run_task_vector(
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 89, in run_task_vector
+    dev_accuracy_by_layer = task_vector_accuracy_by_layer(
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 139, in task_vector_accuracy_by_layer
+    task_hiddens = get_task_hiddens(
+  File "/home/yukaalive/2025workspace/icl_task_vectors/core/task_vectors.py", line 328, in get_task_hiddens
+    hidden_states = traced_outputs.hidden_states
+AttributeError: 'tuple' object has no attribute 'hidden_states'
+Evaluating model: meta-llama Llama-2-7b-hf
+Loading model and tokenizer...
+Loaded model and tokenizer.
+WARNING: mapping singular_plural has only 31 examples after filtering (173 before)
+WARNING: mapping plural_singular has only 44 examples after filtering (172 before)
+=== Baseline Prompt Example (task: translation_fr_en) ===
+<s> example: réduire->
+
+=== ICL Prompt Example ===
+<s> example: dessiner-> draw
+example: performance-> performance
+example: église-> church
+example: terre-> earth
+example: sœur-> sister
+example: récit->
+
+================================================================================
+
+=== Baseline Prompt Example (task: linguistic_present_simple_gerund) ===
+<s> example: surprise->
+
+=== ICL Prompt Example ===
+<s> example: throw-> throwing
+example: connect-> connecting
+example: surprise-> surprising
+example: sign-> signing
+example: belong-> belonging
+example: face->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_country_capital) ===
+<s> example:Ukrainian State->
+
+=== ICL Prompt Example ===
+<s> example:Lebanon->Beirut
+example:State of Brazil->Salvador
+example:West Pakistan->Karachi
+example:Second Polish Republic->Warsaw
+example:Roman Empire->Constantinople
+example:4th of August Regime->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_next_letter) ===
+<s> example:e->
+
+=== ICL Prompt Example ===
+<s> example:q->r
+example:p->q
+example:s->t
+example:v->w
+example:r->s
+example:a->
+
+================================================================================
+
+=== Baseline Prompt Example (task: translation_es_en) ===
+<s> example: probar->
+
+=== ICL Prompt Example ===
+<s> example: taza-> cup
+example: porque-> cause
+example: reporte-> report
+example: aire-> air
+example: dolor-> pain
+example: verdadero->
+
+================================================================================
+
+=== Baseline Prompt Example (task: translation_en_fr) ===
+<s> example: justice->
+
+=== ICL Prompt Example ===
+<s> example: special-> spécial
+example: together-> ensemble
+example: serve-> servir
+example: version-> version
+example: month-> mois
+example: north->
+
+================================================================================
+
+=== Baseline Prompt Example (task: translation_en_es) ===
+<s> example: special->
+
+=== ICL Prompt Example ===
+<s> example: by-> por
+example: factor-> factor
+example: legal-> legal
+example: only-> solo
+example: country-> país
+example: at->
+
+================================================================================
+
+=== Baseline Prompt Example (task: linguistic_present_simple_past_simple) ===
+<s> example: talk->
+
+=== ICL Prompt Example ===
+<s> example: fire-> fired
+example: perform-> performed
+example: describe-> described
+example: edit-> edited
+example: lead-> led
+example: lay->
+
+================================================================================
+
+WARNING: mapping plural_singular has only 44 examples after filtering (172 before)
+=== Baseline Prompt Example (task: linguistic_plural_singular) ===
+<s> example: châteaus->
+
+=== ICL Prompt Example ===
+<s> example: series-> series
+example: heroes-> hero
+example: leaves-> leaf
+example: radii-> radius
+example: media-> medium
+example: hypotheses->
+
+================================================================================
+
+=== Baseline Prompt Example (task: linguistic_antonyms) ===
+<s> example: friend->
+
+=== ICL Prompt Example ===
+<s> example: complex-> simple
+example: defend-> attack
+example: black-> white
+example: rural-> urban
+example: gentle-> rough
+example: dull->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_person_language) ===
+<s> example:Alexander William Kinglake->
+
+=== ICL Prompt Example ===
+<s> example:Charles Incledon->English
+example:Vincent d'Indy->French
+example:Suzanne Malherbe->French
+example:Yitzhak Arad->Hebrew
+example:Antoine Laurent de Jussieu->French
+example:Olivier Baroux->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_location_continent) ===
+<s> example:Ray Promontory->
+
+=== ICL Prompt Example ===
+<s> example:Teres Ridge->Antarctica
+example:Morgan Inlet->Antarctica
+example:Archar Peninsula->Antarctica
+example:Harris Peninsula->Antarctica
+example:Beaumont Glacier->Antarctica
+example:The Gullet->
+
+================================================================================
+
+=== Baseline Prompt Example (task: knowledge_location_religion) ===
+<s> example:Rafi ud-Darajat->
+
+=== ICL Prompt Example ===
+<s> example:Maulana Mohammad Ali->Muslim
+example:Abdur Raheem Green->Muslim
+example:Moses in Islam->Muslim
+example:Rowland Allanson-Winn, 5th Baron Headley->Muslim
+example:John Bunyan->Christian
+example:Jean-Jacques Rousseau->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_prev_letter) ===
+<s> example:g->
+
+=== ICL Prompt Example ===
+<s> example:p->o
+example:m->l
+example:y->x
+example:h->g
+example:j->i
+example:f->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_list_first) ===
+<s> example:r,s,z,a->
+
+=== ICL Prompt Example ===
+<s> example:l,j,v->l
+example:v,o,x->v
+example:c,g,l,o->c
+example:u,n,x->u
+example:i,d->i
+example:z,p,u,n->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_list_last) ===
+<s> example:e,p,w->
+
+=== ICL Prompt Example ===
+<s> example:c,g->g
+example:r,k,o,q->q
+example:d,m->m
+example:d,j,r,i->i
+example:w,t,f,p->p
+example:y,w,m->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_to_upper) ===
+<s> example:u->
+
+=== ICL Prompt Example ===
+<s> example:b->B
+example:f->F
+example:d->D
+example:m->M
+example:g->G
+example:r->
+
+================================================================================
+
+=== Baseline Prompt Example (task: algorithmic_to_lower) ===
+<s> example:S->
+
+=== ICL Prompt Example ===
+<s> example:V->v
+example:T->t
+example:K->k
+example:P->p
+example:Z->z
+example:D->
+
+================================================================================
+
+
+==================================================
+Running task 1/27: translation_fr_en
+Evaluating baseline for task: translation_fr_en
+Baseline accuracy: 0.0900
+Evaluating ICL and Task Vector for task: translation_fr_en
+ICL accuracy: 0.8400
+Debug: モデルは合計32層あります
+Debug: タスクhiddensを取得中...
+Debug: 単一コンテキストからタスクhiddensを取得中...
+Debug: データセット 1/25 処理中
