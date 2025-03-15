@@ -1,44 +1,54 @@
-version: "3"
-
 services:
-  umezawa24vr054y:
-    image: kaggle:latest
+  umezawa:
+    image: pytorch/pytorch:2.3.1-cuda12.1-cudnn8-devel
     env_file:
-      - .env  # 環境変数を読み込む
-    shm_size: '8gb'
+      - .env
+    shm_size: '32gb'
+    mem_limit: '32g'
     volumes:
       - /home/yukaalive/2025workspace:/home/yukaalive/2025workspace
     working_dir: /home/yukaalive/2025workspace
     ports:
-      - "8888:8888"  # JupyterLabに合わせる
-
-    command: >
-      /bin/bash -c "
-      echo 'Environment Variables:'
-      echo 'HUGGINGFACE_TOKEN='$HUGGINGFACE_TOKEN
-      echo 'LLAMA_DIR='$LLAMA_DIR
-
-      # Condaのパスを設定
-      export PATH=/opt/miniconda/bin:$PATH
-      source /opt/miniconda/bin/activate base
-
-      echo 'Checking if conda environment exists...'
-      if [ ! -d '/opt/miniconda/envs/icl_task_vectors' ]; then
-        echo 'Creating conda environment...'
-        conda env create -f /home/yukaalive/2025workspace/environment.yml -n icl_task_vectors
-      else
-        echo 'Conda environment already exists.'
-      fi
-
-      conda activate icl_task_vectors
-
-      echo 'Ensuring LLaMA directory exists...'
-      mkdir -p $LLAMA_DIR
-
-      echo 'Starting Jupyter Lab...'
-      jupyter lab --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token='Yuka0124'
-      "
+      - "8888:8888"
+    command: |
+      bash -c '
+      set -e &&
+      echo "Environment Variables:" &&
+      echo "HUGGINGFACE_TOKEN=$HUGGINGFACE_TOKEN" &&
+      echo "LLAMA_DIR=$LLAMA_DIR" &&
       
+      # conda環境作成を確認
+      if [ ! -d "/opt/conda/envs/icl_task_vectors" ]; then
+        echo "Creating conda environment..." &&
+        conda create -n icl_task_vectors python=3.10 -y &&
+        
+        echo "Installing PyTorch..." &&
+        conda install -n icl_task_vectors -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia &&
+        
+        echo "Installing data science packages..." &&
+        conda install -n icl_task_vectors -y scipy scikit-learn matplotlib pandas -c conda-forge &&
+        
+        echo "Installing Jupyter..." &&
+        conda install -n icl_task_vectors -y jupyter jupyterlab -c conda-forge &&
+        
+        echo "Installing transformers and datasets..." &&
+        conda install -n icl_task_vectors -y transformers datasets -c huggingface -c conda-forge &&
+        
+        echo "Installing utility packages..." &&
+        conda install -n icl_task_vectors -y requests tqdm python-dotenv schedule -c conda-forge &&
+        
+        echo "Installing pip packages..." &&
+        conda run -n icl_task_vectors pip install sentencepiece bitsandbytes nltk accelerate;
+      else
+        echo "conda environment already exists";
+      fi &&
+      
+      echo "Ensuring LLaMA directory exists..." &&
+      mkdir -p $LLAMA_DIR &&
+      
+      echo "Starting JupyterLab..." &&
+      conda run -n icl_task_vectors jupyter lab --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token="Yuka0124"
+      '
     deploy:
       resources:
         reservations:
