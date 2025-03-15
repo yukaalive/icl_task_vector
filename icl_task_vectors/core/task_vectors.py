@@ -70,7 +70,6 @@ def run_icl(
     predictions = decode_predictions(new_ids, tokenizer)
     return predictions
 
-
 def run_task_vector(
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
@@ -93,8 +92,15 @@ def run_task_vector(
         layers_to_test=layers_to_test,
         multi_context=multi_context,
     )
+    
+    # 実験結果の要約を表示
+    print("\n=== 各層の精度サマリー ===")
+    for layer, acc in sorted(dev_accuracy_by_layer.items()):
+        print(f"層 {layer}: {acc:.4f}")
+    
     best_intermediate_layer = int(max(dev_accuracy_by_layer, key=dev_accuracy_by_layer.get))
-    print(f"Debug: 最適な中間層: {best_intermediate_layer}")
+    best_accuracy = dev_accuracy_by_layer[best_intermediate_layer]
+    print(f"\nDebug: 最適な中間層: {best_intermediate_layer} (精度: {best_accuracy:.4f})")
 
     task_hiddens = get_task_hiddens(
         model,
@@ -114,8 +120,6 @@ def run_task_vector(
     )
 
     return predictions, dev_accuracy_by_layer, task_hiddens
-
-
 def task_vector_accuracy_by_layer(
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
@@ -127,61 +131,95 @@ def task_vector_accuracy_by_layer(
     """
     指定したデータセットに対して、各中間層を使ったときの精度を計算する。
     """
-    # すべての層をテスト
-    num_layers = len(get_layers(model))
-    if layers_to_test is None:
-        layers_to_test = range(num_layers)
-    
-    print(f"Debug: モデルは合計{num_layers}層あります")
+    try:
+        # すべての層をテスト
+        num_layers = len(get_layers(model))
+        if layers_to_test is None:
+            layers_to_test = range(num_layers)
+        
+        # リストに変換して長さを取得
+        layers_list = list(layers_to_test)
+        total_layers = len(layers_list)
+        
+        print(f"Debug: モデルは合計{num_layers}層あります")
+        print(f"Debug: テスト対象の層は合計{total_layers}層です")
 
-    # タスクベクター計算用 hidden states
-    task_hiddens = get_task_hiddens(
-        model,
-        tokenizer,
-        task,
-        datasets,
-        multi_context=multi_context,
-    )
-
-    # トークナイズ & デバイス移動
-    inputs = tokenize_datasets(tokenizer, datasets, format_dataset_kwargs={"include_train": False})
-    _move_inputs_to_device(inputs, model.device)
-
-    # 通常の forward (バッチ対応)
-    outputs = batch_forward(
-        model=model,
-        inputs=inputs,
-        forward_kwargs={"use_cache": True},
-        batch_size=BATCH_SIZE,
-    )
-
-    # 直近トークン以外を past_key_values 化
-    past_key_values = outputs.past_key_values
-    past_key_values = nested_apply(past_key_values, lambda x: x[:, :, :-1])
-
-    # 最後のトークンだけ残して次の生成用 input_ids に
-    inputs["input_ids"] = inputs["input_ids"][..., -1].unsqueeze(1)
-
-    accuracies = []
-    for layer_num in layers_to_test:
-        print(f"Debug: 層{layer_num}のテスト中...")
-        answers = modulated_generate(
-            model=model,
-            tokenizer=tokenizer,
-            task=task,
-            datasets=datasets,
-            intermediate_layer=layer_num,
-            task_hiddens=task_hiddens,
-            past_key_values=past_key_values,
+        # タスクベクター計算用 hidden states
+        task_hiddens = get_task_hiddens(
+            model,
+            tokenizer,
+            task,
+            datasets,
+            multi_context=multi_context,
         )
-        accuracy = calculate_accuracy_on_datasets(task, answers, datasets)
-        accuracies.append(accuracy)
-        print(f"Debug: 層{layer_num}の精度: {accuracy:.4f}")
 
-    accuracy_by_layer = {layer: acc for layer, acc in zip(layers_to_test, accuracies)}
-    return accuracy_by_layer
+        # トークナイズ & デバイス移動
+        inputs = tokenize_datasets(tokenizer, datasets, format_dataset_kwargs={"include_train": False})
+        _move_inputs_to_device(inputs, model.device)
 
+        # 通常の forward (バッチ対応)
+        outputs = batch_forward(
+            model=model,
+            inputs=inputs,
+            forward_kwargs={"use_cache": True},
+            batch_size=BATCH_SIZE,
+        )
 
+        # 直近トークン以外を past_key_values 化
+        past_key_values = outputs.past_key_values
+        past_key_values = nested_apply(past_key_values, lambda x: x[:, :, :-1])
+
+        # 最後のトークンだけ残して次の生成用 input_ids に
+        inputs["input_ids"] = inputs["input_ids"][..., -1].unsqueeze(1)
+
+        accuracies = []
+        for i, layer_num in enumerate(layers_list):
+            # 進行状況を表示
+            progress = (i / total_layers) * 100
+            progress_bar = "[" + "=" * int(progress / 5) + " " * (20 - int(progress / 5)) + "]"
+            print(f"\rDebug: 実験進行状況: {progress_bar} {progress:.1f}% (層 {i+1}/{total_layers}, 現在: {layer_num})", end="")
+            
+            try:
+                print(f"\nDebug: 層{layer_num}のテスト中...")
+                answers = modulated_generate(
+                    model=model,
+                    tokenizer=tokenizer,
+                    task=task,
+                    datasets=datasets,
+                    intermediate_layer=layer_num,
+                    task_hiddens=task_hiddens,
+                    past_key_values=past_key_values,
+                )
+                accuracy = calculate_accuracy_on_datasets(task, answers, datasets)
+            except Exception as e:
+                print(f"Error: 層{layer_num}のテスト中にエラーが発生しました: {e}")
+                print("Error: このエラーをキャッチして次の層に進みます")
+                answers = ["ERROR"] * len(datasets)
+                accuracy = 0.0
+                
+                # GPUのキャッシュをクリア
+                torch.cuda.empty_cache()
+                
+            accuracies.append(accuracy)
+            print(f"Debug: 層{layer_num}の精度: {accuracy:.4f}")
+
+        print("\nDebug: すべての層のテストが完了しました")
+        accuracy_by_layer = {layer: acc for layer, acc in zip(layers_list, accuracies)}
+        return accuracy_by_layer
+        
+    except Exception as e:
+        print(f"Critical Error: 実験中に重大なエラーが発生しました: {e}")
+        import traceback
+        traceback.print_exc()
+        
+        # できるだけ結果を返す
+        if 'layers_list' in locals() and 'accuracies' in locals() and len(layers_list) == len(accuracies):
+            accuracy_by_layer = {layer: acc for layer, acc in zip(layers_list, accuracies)}
+            return accuracy_by_layer
+        else:
+            # 最低限の結果を返す
+            return {0: 0.0}
+        
 def modulated_generate(
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
