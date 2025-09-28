@@ -25,6 +25,9 @@ def is_iterable(obj):
 def nested_concat(obj_list):
     first_item = obj_list[0]
 
+    if "DynamicCache" in str(type(first_item).__name__):
+        # DynamicCacheの場合は、最初のキャッシュをそのまま返す
+        return first_item
     if isinstance(first_item, torch.Tensor):
         return torch.cat(obj_list)
     elif is_mapping(first_item):

@@ -62,7 +62,8 @@ def _get_falcon_device_map() -> dict[str, int]:
         "transformer.ln_f": 0,
     }
     num_layers = 60
-    num_layers_per_device = math.ceil(num_layers / (num_devices - 1))
+    num_layers_per_device = 1
+    #num_layers_per_device = math.ceil(num_layers / (num_devices - 1))
     device_map.update({f"transformer.h.{i}": (i // num_layers_per_device + 1) for i in range(num_layers)})
     return device_map
 
@@ -91,7 +92,8 @@ def _create_device_map(model_path: str) -> dict[str, int]:
     device_map_other = {k: 0 for k in device_map_other}
     # split the layers evenly across the other devices (1-num_devices)
     num_layers = len(device_map_layers)
-    num_layers_per_device = math.ceil(num_layers / (num_devices - 1))
+    #num_layers_per_device = math.ceil(num_layers / (num_devices - 1))
+    num_layers_per_device = 1
     device_map_layers = {k: (i // num_layers_per_device + 1) for i, k in enumerate(device_map_layers)}
 
     device_map = {**device_map_other, **device_map_layers}
@@ -130,43 +132,40 @@ def load_model_and_tokenizer(
     return model, tokenizer
 
 
+
 MODEL_PATHS = {
-    "pythia": {
-        "1.4B": "EleutherAI/pythia-1.4b",
-        "2.8B": "EleutherAI/pythia-2.8b",
-        "6.9B": "EleutherAI/pythia-6.9b",
-        "12B": "EleutherAI/pythia-12b",
-    },
     "llama": {
-        "7B": llama_local_path("huggingface", "7B"),
-        "13B": llama_local_path("huggingface", "13B"),
-        "30B": llama_local_path("huggingface", "30B"),
-        "65B": llama_local_path("huggingface", "65B"),
+        "7B": "meta-llama/Llama-2-7b-hf",
+        "13B": "meta-llama/Llama-2-13b-hf"
     },
-    "falcon": {
-        "7B": "tiiuae/falcon-7b",
-        "40B": "tiiuae/falcon-40b",
+    "minillm": {
+        "7B": "MiniLLM/MiniLLM-Llama-7B"
     },
-    "gpt-j": {
-        "6B": "EleutherAI/gpt-j-6B",
+    "Qwen":{
+        "14B_j": "cyberagent/DeepSeek-R1-Distill-Qwen-14B-Japanese",
+        "14B" : "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+        
     },
-    "gpt-2": {
-        "0.35B": "gpt2-medium",
-        "0.77B": "gpt2-large",
-        "1.5B": "gpt2-xl",
+    "youko":{
+        "8B": "rinna/llama-3-youko-8b"
+    },  
+    "nekomata":{
+        "7B": "rinna/nekomata-7b"
     },
-    "mpt": {
-        "7B": "mosaicml/mpt-7b",
+    "llm-jp":{
+        "13B":"llm-jp/llm-jp-13b-v2.0"
     },
-    "gpt-neox": {
-        "20B": "EleutherAI/gpt-neox-20b",
+    "swallow":{
+        "7B":"tokyotech-llm/Swallow-7b-hf"
     },
-    "starcoder": {
-        "regular": "bigcode/starcoder",
-        "plus": "bigcode/starcoderplus",
+    "xalma":{
+        "13B":"haoranxu/X-ALMA-13B-Group6"
     },
-    "cerebras-gpt": {
-        "6.7B": "cerebras/Cerebras-GPT-6.7B",
-        "13B": "cerebras/Cerebras-GPT-13B",
+    "gpt-j":{
+        "6B":"EleutherAI/gpt-j-6b"
     },
+    "pythia":{
+        "2.8B":"EleutherAI/pythia-2.8b",
+        "12B":"EleutherAI/pythia-12b"
+    }
 }
