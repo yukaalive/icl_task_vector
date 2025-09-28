@@ -1,3 +1,4 @@
+docker exec -it umezawa-icl_task_vectors bash
 # In-Context Learning Creates Task Vectors
 This is the official code repository for the paper [In-Context Learning Creates Task Vectors](https://arxiv.org/abs/2310.15916), Roee Hendel, Mor Geva, Amir Globerson. 2023.
 
