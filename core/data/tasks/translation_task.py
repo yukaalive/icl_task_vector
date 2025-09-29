@@ -14,6 +14,10 @@ from typing import Any
 class TranslationTask(MappingTask):
     @staticmethod
     def _get_synonyms(word: str, lang_to: str):
+        # 日本語の場合は完全一致のみを許可（WordNetは日本語をサポートしていない）
+        if lang_to == "ja":
+            return [word]
+
         lang = {
             "en": "eng",
             "fr": "fra",

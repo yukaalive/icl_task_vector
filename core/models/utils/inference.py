@@ -189,8 +189,18 @@ def tokenize_datasets(
     datasets: List[FewShotDataset],
     few_shot_format: FewShotFormat = FewShotFormat(),
     format_dataset_kwargs: Optional[dict] = {},
+    dataset_name: Optional[str] = None,
 ) -> torch.Tensor:
-    prompts = few_shot_format.format_datasets(datasets, **format_dataset_kwargs)
+    """
+    データセットをトークン化する
+    Args:
+        tokenizer: 使用するトークナイザー
+        datasets: トークン化するデータセットのリスト
+        few_shot_format: フォーマット設定
+        format_dataset_kwargs: フォーマット時の追加引数
+        dataset_name: データセット名（データセット固有のプロンプトを使用する場合）
+    """
+    prompts = few_shot_format.format_datasets(datasets, dataset_name=dataset_name, **format_dataset_kwargs)
     return tokenize_prompts(tokenizer, prompts)
 
 
