@@ -1,0 +1,66 @@
+services:
+  umezawa:
+    image: pytorch/pytorch:2.3.1-cuda12.1-cudnn8-devel
+    container_name: umezawa-icl_task_vectors
+    env_file:
+      - .env
+    shm_size: '32gb'
+    mem_limit: '128g'
+    volumes:
+      - /home/yukaalive/2025workspace:/home/yukaalive/2025workspace
+    working_dir: /home/yukaalive/2025workspace
+    ports:
+      - "8889:8888"
+# (他の部分は変更なし)
+    command: |
+      bash -c '
+      set -e &&
+      echo "Environment Variables:" &&
+      echo "HUGGINGFACE_TOKEN=$HUGGINGFACE_TOKEN" &&
+      echo "LLAMA_DIR=$LLAMA_DIR" &&
+      
+      # conda環境作成を確認 (icl_task_vectors)
+      if [ ! -d "/opt/conda/envs/icl_task_vectors" ]; then
+        echo "Creating conda environment: icl_task_vectors..." &&
+        conda create -n icl_task_vectors python=3.10 -y &&
+        
+        echo "Installing PyTorch in icl_task_vectors..." &&
+        conda install -n icl_task_vectors -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia &&
+        
+        echo "Installing data science packages in icl_task_vectors..." &&
+        conda install -n icl_task_vectors -y scipy scikit-learn matplotlib pandas -c conda-forge &&
+        
+        echo "Installing Jupyter in icl_task_vectors..." &&
+        conda install -n icl_task_vectors -y jupyter jupyterlab -c conda-forge &&
+        
+        # conda で datasets をインストール (transformers は pip で入れる)
+        echo "Installing datasets via conda..." &&
+        conda install -n icl_task_vectors -y datasets -c huggingface -c conda-forge &&
+        
+        echo "Installing utility packages in icl_task_vectors..." &&
+        conda install -n icl_task_vectors -y requests tqdm python-dotenv schedule -c conda-forge &&
+        
+        echo "Installing pip packages (including latest transformers)..." &&
+        # pip で accelerate 等と最新版の transformers をインストール
+        conda run -n icl_task_vectors pip install sentencepiece bitsandbytes nltk accelerate --upgrade transformers; # --upgrade transformers を追加
+      else
+        echo "conda environment icl_task_vectors already exists";
+        # 既存環境でも念のため transformers を最新化
+        echo "Upgrading transformers in existing environment..." &&
+        conda run -n icl_task_vectors pip install --upgrade transformers;
+      fi &&
+      
+      echo "Ensuring LLaMA directory exists..." &&
+      mkdir -p $LLAMA_DIR &&
+      
+      echo "Starting JupyterLab for icl_task_vectors..." &&
+      conda run -n icl_task_vectors jupyter lab --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token="Yuka0124"
+      '
+# (deploy以下の設定は変更なし)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ "1" ]
+              capabilities: [ gpu ]
